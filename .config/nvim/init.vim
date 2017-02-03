@@ -10,19 +10,20 @@ set encoding=utf-8
 "autocmd! bufwritepost .vimrc source %
 " ============================= vim-plug  ==============================
 call plug#begin()
-Plug 'tpope/vim-sensible'
-
 " On-demand loading
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+	Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+	if !has('nvim')
+		Plug 'tpope/vim-sensible'
+	endif
 
-Plug 'Valloric/YouCompleteMe'
-Plug 'scrooloose/nerdcommenter'
-"Plug 'vim-perl/vim-perl'
-"Plug 'freeo/vim-kalisi'
-Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
- call plug#end()
+	Plug 'Valloric/YouCompleteMe'
+	Plug 'scrooloose/nerdcommenter'
+	"Plug 'vim-perl/vim-perl'
+	"Plug 'freeo/vim-kalisi'
+	Plug 'tpope/vim-surround'
+	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
+call plug#end()
 
 filetype plugin indent on    " required
 " ============================================================

@@ -62,6 +62,9 @@ bindkey "^U" backward-kill-line
 
 ################################################################################
 # Aliases and mappings
+if [ $+commands[nvim] ]; then
+	alias vim='nvim';
+fi;
 
 alias chrome=google-chrome
 # TODO alias and completion for the alias

@@ -3,17 +3,17 @@
 OS=`uname -s`
 my_dir=`pwd`
 
-if [ $OS = "Darwin"]; then
+#if [ $OS = "Darwin"]; then
 	#install OSX dependencies
 
 	# OSX specific stuff
-else; if [ $OS = "Linux" ]; then
+#else; if [ $OS = "Linux" ]; then
 	# install debian dependencies
 
 	# debian specific stuff
-else;
+#else;
 	# cygwin
-fi;
+#fi;
 
 
 ########################################
@@ -31,6 +31,11 @@ ln -s $HOME/.config/nvim/init.vim $HOME/.vimrc
 #nvim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# nvim python
+pip2 install --user --upgrade neovim
+pip3 install --user --upgrade neovim
+
 #mkdir -p $HOME/.config/nvim/rc
 mkdir -p $HOME/.local/share/nvim/swap
 mkdir -p $HOME/.local/share/nvim/undo
@@ -38,7 +43,7 @@ mkdir -p $HOME/.local/share/nvim/backup
 
 nvim +PlugInstall +qall
 cd $HOME/.config/nvim/plugged/YouCompleteMe
-./install.py --clag-completer
+./install.py --clang-completer
 cd $my_dir
 
 ########################################
