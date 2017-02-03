@@ -29,8 +29,8 @@ filetype plugin indent on    " required
 " ============================================================
 " file type specific vim config
 " ============================================================
-autocmd BufNewFile,BufRead *.tex source $HOME/.conf/nvim/rc/latex.vim
-autocmd BufNewFile,BufRead *.py  source $HOME/.conf/nvim/rc/python.vim
+autocmd BufNewFile,BufRead *.tex source $HOME/.config/nvim/rc/latex.vim
+autocmd BufNewFile,BufRead *.py  source $HOME/.config/nvim/rc/python.vim
 
 " ============================================================
 " makes vim drop its tmp files inside the .vim folder
@@ -182,8 +182,6 @@ set smartcase
 " makes / and ? case insensitive
 set ic
 
-
-
 "============================================================================
 "							Awesome Functions								=
 "						And settings related to them						=
@@ -222,6 +220,10 @@ set relativenumber
 "============================================================================
 " Plugin specific stuff
 "============================================================================
+let g:NERDSpaceDelims = 1
+let g:NERDCommentEmptyLines = 1
+
+
 
 let g:pyflakes_use_quickfix = 0
 

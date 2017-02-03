@@ -32,14 +32,16 @@ ln -s $HOME/.config/nvim/init.vim $HOME/.vimrc
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# nvim python
-pip2 install --user --upgrade neovim
-pip3 install --user --upgrade neovim
-
 #mkdir -p $HOME/.config/nvim/rc
+mkdir -p $HOME/.conf/nvim/colors
 mkdir -p $HOME/.local/share/nvim/swap
 mkdir -p $HOME/.local/share/nvim/undo
 mkdir -p $HOME/.local/share/nvim/backup
+wget http://www.vim.org/scripts/download_script.php?src_id=13400 -O $HOME/.config/nvim/colors/wombat256mod.vim
+
+# nvim python
+pip2 install --user --upgrade neovim
+pip3 install --user --upgrade neovim
 
 nvim +PlugInstall +qall
 cd $HOME/.config/nvim/plugged/YouCompleteMe
