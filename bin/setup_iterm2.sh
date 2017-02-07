@@ -19,7 +19,11 @@ osascript -e 'tell application "System Events" to tell process "iTerm" to keystr
 
 osascript -e 'tell application "iTerm" to activate' 
 osascript -e 'tell application "System Events" to keystroke "1" using command down' 
-osascript -e 'tell application "System Events" to tell process "iTerm" to keystroke "tmux"' -e 'tell application "System Events" to tell process "iTerm" to key code 52'
+if [ $# -eq 0 ]; then
+	osascript -e 'tell application "System Events" to tell process "iTerm" to keystroke "tmux"' -e 'tell application "System Events" to tell process "iTerm" to key code 52'
+else
+	osascript -e "tell application "System Events" to tell process "iTerm" to keystroke 'tmux attach -s $1'" -e 'tell application "System Events" to tell process "iTerm" to key code 52'
+fi
 # open tmux and kill the new session
 sleep 2 
 osascript -e 'tell application "System Events" to tell process "iTerm" to keystroke "a" using controll down' 

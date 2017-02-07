@@ -1,4 +1,4 @@
-# Licensed CC Attribution -- you are free to use, share, modify this configuration, but please attribute
+ # Licensed CC Attribution -- you are free to use, share, modify this configuration, but please attributeTH
 # Jan Christians Refsgaards .zshrc, originally inspired by Helen Cooks awesome zsh
 
 #
@@ -37,7 +37,7 @@ zle -N zle-line-init
 
 ################################################################################
 export PYTHONPATH=~/Projects/python_modules
-export PATH=$PATH:~/bin
+export PATH="$HOME/bin:$PATH"
 # History settings
 
 export HISTFILE=~/.history
@@ -63,7 +63,10 @@ bindkey "^U" backward-kill-line
 ################################################################################
 # Aliases and mappings
 if [ $+commands[nvim] ]; then
+	export EDITOR=`which nvim`
 	alias vim='nvim';
+else
+	export EDITOR=`which vim`
 fi;
 
 alias chrome=google-chrome
@@ -127,10 +130,13 @@ if [ $OS = "Darwin" ]; then
 	# add node packages to path
 	export PATH="$PATH:/usr/local/Cellar/node/6.6.0/libexec/npm/bin/"
 	export PATH="/usr/local/sbin:$PATH"
-else;
-
+#else;
 fi;
 
+
+################################################################################
+# extra rc file that is 'server specific and not part of the yadm repository
+source $HOME/.config/zshrc_extra.sh
 
 
 #

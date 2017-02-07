@@ -1,6 +1,4 @@
 
-set termguicolors
-
 " share stuff between vim and neovim
 "set runtimepath+=$HOME/.vim
 "source $HOME/.vimrc
@@ -14,6 +12,8 @@ call plug#begin()
 	Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 	if !has('nvim')
 		Plug 'tpope/vim-sensible'
+	else
+		set termguicolors
 	endif
 
 	Plug 'Valloric/YouCompleteMe'
