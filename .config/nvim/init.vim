@@ -122,10 +122,10 @@ highlight ColorColumn ctermbg=233
 " makes yanked text be yanked into the global clipboard
 " makes OSX clipboard work when vim is started in a tmux session
 " ============================================================
-set clipboard=unnamed
-"if $TMUX == ''
-"    set clipboard+=unnamed
-"endif
+set clipboard=unnamedplus
+if $TMUX == ''
+    set clipboard+=unnamed
+endif
 
 
 " ============================================================
@@ -221,7 +221,7 @@ set relativenumber
 " Plugin specific stuff
 "============================================================================
 let g:NERDSpaceDelims = 1
-let g:NERDCommentEmptyLines = 1
+let g:NERDCommentEmptyLines = 0
 
 
 
