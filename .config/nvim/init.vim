@@ -109,7 +109,7 @@ set wrapmargin=0
 " ============================================================
 " Color scheme and other ‘estetics’
 " ============================================================"
-colorscheme wombat256mod
+colorscheme wombat256jcr
 let g:airline_theme='badwolf'
 "set t_Co=256
 set colorcolumn=100
