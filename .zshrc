@@ -1,4 +1,4 @@
- # Licensed CC Attribution -- you are free to use, share, modify this configuration, but please attributeTH
+ 
 # Jan Christians Refsgaards .zshrc, originally inspired by Helen Cooks awesome zsh
 
 #
@@ -136,7 +136,8 @@ fi;
 
 ################################################################################
 # extra rc file that is 'server specific and not part of the yadm repository
-source $HOME/.config/zshrc_extra.sh
+if [[ -a $HOME/.config/zshrc_extra.sh ]]; then
+	source $HOME/.config/zshrc_extra.sh
+fi
 
-
-#
+export DISABLE_AUTO_TITLE="true" 
