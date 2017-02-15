@@ -21,7 +21,7 @@ my_dir=`pwd`
 ########################################
 # vim
 # install vundle, or change to vim-plug
-ln -s $HOME/.config/nvim/init.vim $HOME/.vimrc
+#ln -s $HOME/.config/nvim/init.vim $HOME/.vimrc
 #mkdir -p $HOME/.vim/colors
 #mkdir -p $HOME/.vim/rc
 #mkdir -p $HOME/.vim/swap
@@ -37,7 +37,7 @@ mkdir -p $HOME/.conf/nvim/colors
 mkdir -p $HOME/.local/share/nvim/swap
 mkdir -p $HOME/.local/share/nvim/undo
 mkdir -p $HOME/.local/share/nvim/backup
-wget http://www.vim.org/scripts/download_script.php?src_id=13400 -O $HOME/.config/nvim/colors/wombat256mod.vim
+#wget http://www.vim.org/scripts/download_script.php?src_id=13400 -O $HOME/.config/nvim/colors/wombat256mod.vim
 
 # nvim python
 pip2 install --user --upgrade neovim
