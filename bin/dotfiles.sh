@@ -15,6 +15,8 @@ my_dir=`pwd`
 	# cygwin
 #fi;
 
+# antigen
+curl https://cdn.rawgit.com/zsh-users/antigen/v1.4.0/bin/antigen.zsh > $HOME/antigen.zsh
 
 ########################################
 # vim / neovim
