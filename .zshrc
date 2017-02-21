@@ -79,6 +79,15 @@ alias t="todo.sh"
 if [ $OS = "Darwin" ]; then
 	alias c="pbcopy"
 	alias v="pbpaste"
+	alias excel='/Applications/Microsoft Excel.app'
+	alias word='/Applications/Microsoft Word.app'
+	alias powerpoint='/Applications/Microsoft PowerPoint.app'
+	# alias excel='open -a "/Applications/Microsoft Excel.app"'
+	# alias word='open -a "/Applications/Microsoft Word.app"'
+	# alias powerpoint='open -a "/Applications/Microsoft PowerPoint.app"'
+	# compdef excel='open'
+	# compdef word='open'
+	# compdef powerpoint='open'
 else;
 	alias c="xclip -selection clipboard"
 	alias v="xclip -selection clipboard -o"

@@ -48,18 +48,16 @@ inoremap <C-s> <Esc>:w<CR>i
 
 " use 2 letter custom leader command
 noremap  <Leader>wc :%!column -t
+" inoremap <S-left> <Esc>bi
+" inoremap <S-right> <Esc>wi
+" inoremap <S-h> <Esc>bi
+" inoremap <S-l> <Esc>wi
 
-"inoremap <S-left> <Esc>bi
-"#inoremap <S-right> <Esc>wi
-"inoremap "<S-h> <Esc>bi
-"inoremap <S-l> <Esc>wi
+" inoremap <A-left>>wi
+" inoremap <A-right> normal w
+" inoremap <A-h> normal b
+" inoremap <A-l> normal w
 
-"inoremap <A-left>>wi
-"inoremap <A-right> normal w
-"inoremap <A-h> normal b
-"inoremap <A-l> normal w
-
-" nnoremap <Leader>l :call NumberToggle()<cr>
 " ============================================================
 
 
@@ -105,7 +103,8 @@ set linebreak
 set nolist  " list disables linebreak
 set textwidth=0
 set wrapmargin=0
-"
+
+
 " ============================================================
 " Color scheme and other ‘estetics’
 " ============================================================"
@@ -115,7 +114,6 @@ let g:airline_theme='badwolf'
 set colorcolumn=100
 "set tw=100  " width of document (used by gd), default was 79
 highlight ColorColumn ctermbg=233
-
 
 
 " ============================================================
@@ -188,30 +186,36 @@ set ic
 "============================================================================
 
 " === Make shift operations in Visual mode stay in Visual mode afterwards ===
-"    vmap <expr> > ShiftAndKeepVisualSelection(">")
-"    vmap <expr> < ShiftAndKeepVisualSelection("<")
-"
-"    function! ShiftAndKeepVisualSelection(cmd, mode)
-"        set nosmartindent
-"        if mode() =~ '[Vv]'
-"            return a:cmd . ":set smartindent\<CR>gv"
-"        else
-"            return a:cmd . ":set smartindent\<CR>"
-"        endif
-"    endfunction
+" vmap <expr> > ShiftAndKeepVisualSelection(">")
+" vmap <expr> < ShiftAndKeepVisualSelection("<")
+
+" function! ShiftAndKeepVisualSelection(cmd, mode)
+	" set nosmartindent
+	" if mode() =~ '[Vv]'
+		" return a:cmd . ":set smartindent\<CR>gv"
+	" else
+		" return a:cmd . ":set smartindent\<CR>"
+	" endif
+" endfunction
 
 
 " ===== Awesome line number magic =====
+nnoremap <Leader>l :call NumberToggle()<cr>
 function! NumberToggle()
     if(&relativenumber == 1)
-        set number
+        " set number
+		set nonumber
+		set norelativenumber
     else
-        set relativenumber
+        " set relativenumber
+		set number
+		set relativenumber
     endif
 endfunction
-:au FocusLost * set number
-:au FocusGained * set relativenumber
-autocmd InsertEnter * set number
+autocmd FocusLost * set norelativenumber
+autocmd FocusGained * set relativenumber
+
+autocmd InsertEnter * set norelativenumber
 autocmd InsertLeave * set relativenumber
 set number
 set relativenumber
@@ -222,8 +226,6 @@ set relativenumber
 "============================================================================
 let g:NERDSpaceDelims = 1
 let g:NERDCommentEmptyLines = 0
-
-
 
 let g:pyflakes_use_quickfix = 0
 

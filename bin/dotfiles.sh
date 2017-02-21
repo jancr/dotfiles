@@ -45,7 +45,10 @@ wget http://www.vim.org/scripts/download_script.php?src_id=13400 -O $HOME/.confi
 pip2 install --user --upgrade neovim
 pip3 install --user --upgrade neovim
 
+# install plugins
 nvim +PlugInstall +qall
+
+# compile tab completion
 cd $HOME/.config/nvim/plugged/YouCompleteMe
 ./install.py --clang-completer
 cd $my_dir
@@ -53,4 +56,28 @@ cd $my_dir
 ########################################
 # tmux
 ########################################
+# powerline install instructions?!?!
+# ctrl+A, I
+
+########################################
+# Ipython
+########################################
+pip3 install jupyter_contrib_nbextensions
+pip3 install --upgrade jupyterthemes
+
+# install vim bindings
+mkdir -p $(jupyter --data-dir)/nbextensions
+cd $(jupyter --data-dir)/nbextensions
+git clone https://github.com/lambdalisue/jupyter-vim-binding vim_binding
+chmod -R go-w vim_binding
+
+# fix vimbindings to work with dark color scheme
+cd vim_binding
+ln -s $HOME/.config/ln/jupyter_vim_bindings.css vim_bindings.css
+cd $my_dir
+
+# enable dark theme
+jupyter nbextension enable vim_binding/vim_binding
+jt -t onedork
+
 
