@@ -73,7 +73,7 @@ chmod -R go-w vim_binding
 
 # fix vimbindings to work with dark color scheme
 cd vim_binding
-ln -s $HOME/.config/ln/jupyter_vim_bindings.css vim_bindings.css
+ln -s $HOME/.config/ln/jupyter_vim_binding.css vim_bindings.css
 cd $my_dir
 
 # enable dark theme
