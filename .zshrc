@@ -130,15 +130,13 @@ if [ $OS = "Darwin" ]; then
 	autoload run-help
 	HELPDIR=/usr/local/share/zsh/help
 
-	export PERL5LIB="/usr/local/Cellar/perl/5.24.0_1/lib/perl5/5.24.0/darwin-thread-multi-2level/"
-	export PERL_LOCAL_LIB_ROOT="~/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
-	export PERL_MB_OPT="--install_base \"${PERL5LIB}\"";
-	export PERL_MM_OPT="INSTALL_BASE=${PERL5LIB}"
-
-
+	export PERL5LIB="/usr/local/Cellar/perl/5.24.1/lib"
+	export PERL_MB_OPT='--install_base "/usr/local/Cellar/perl/5.24.0_1/lib/perl5/5.24.1/darwin-thread-multi-2level/"'
+	export PERL_MM_OPT="INSTALL_BASE=/usr/local/Cellar/perl/5.24.1/lib/perl5/5.24.1/darwin-thread-multi-2level/"
 	# add node packages to path
 	export PATH="$PATH:/usr/local/Cellar/node/6.6.0/libexec/npm/bin/"
 	export PATH="/usr/local/sbin:$PATH"
+
 #else;
 fi;
 

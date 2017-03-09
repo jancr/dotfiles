@@ -25,6 +25,7 @@ call plug#begin()
 	Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
+let  mapleader = ','
 filetype plugin indent on    " required
 " ============================================================
 " file type specific vim config
@@ -41,25 +42,7 @@ set undodir=~/.local/share/nvim/undo/
 
 " ALL hotkeys
 " ============================================================
-let  mapleader = ','
-map <Leader>v :source ~jcr/.vimrc<CR>
-noremap <C-s> :w<CR>
-inoremap <C-s> <Esc>:w<CR>i
-
-" use 2 letter custom leader command
-noremap  <Leader>wc :%!column -t
-" inoremap <S-left> <Esc>bi
-" inoremap <S-right> <Esc>wi
-" inoremap <S-h> <Esc>bi
-" inoremap <S-l> <Esc>wi
-
-" inoremap <A-left>>wi
-" inoremap <A-right> normal w
-" inoremap <A-h> normal b
-" inoremap <A-l> normal w
-
-" ============================================================
-
+source $HOME/.config/nvim/rc/map.vim
 
 " ============================================================
 " General option
@@ -71,20 +54,11 @@ set matchpairs+=<:>,«:»
 
 
 
-nnoremap . <NOP>
+" nnoremap . <NOP>
 set autoread " reload file when changes happen in other editors
 set tags=./tags
 
 set mouse=a
-
-" disable formatting when pasting large chunks of code
-set pastetoggle=<F2>
-
-" Disable stupid backup and swap files - they trigger too many events
-" for file system watchers
-"set nobackup
-"set nowritebackup
-"set noswapfile
 
 set history=5000
 
@@ -134,12 +108,8 @@ set foldmethod=indent
 set foldlevel=99
 
 " Make folds auto-open and auto-close when the cursor moves over them
-" DELETE THIS IF IT IS ANOYING!!!!!
-" DELETE THIS IF IT IS ANOYING!!!!!
-" DELETE THIS IF IT IS ANOYING!!!!!
-" DELETE THIS IF IT IS ANOYING!!!!!
-set foldopen=all
-set foldclose=all
+"set foldopen=all
+"set foldclose=all
 "============================================================================
 " Undu stuff
 "============================================================================
@@ -203,11 +173,9 @@ set ic
 nnoremap <Leader>l :call NumberToggle()<cr>
 function! NumberToggle()
     if(&relativenumber == 1)
-        " set number
 		set nonumber
 		set norelativenumber
     else
-        " set relativenumber
 		set number
 		set relativenumber
     endif
