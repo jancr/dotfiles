@@ -32,6 +32,8 @@ filetype plugin indent on    " required
 " ============================================================
 autocmd BufNewFile,BufRead *.tex source $HOME/.config/nvim/rc/latex.vim
 autocmd BufNewFile,BufRead *.py  source $HOME/.config/nvim/rc/python.vim
+autocmd BufNewFile,BufRead *.md  source $HOME/.config/nvim/rc/markdown.vim
+
 
 " ============================================================
 " makes vim drop its tmp files inside the .vim folder
@@ -39,6 +41,9 @@ autocmd BufNewFile,BufRead *.py  source $HOME/.config/nvim/rc/python.vim
 set backupdir=~/.local/share/nvim/backup/
 set directory=~/.local/share/nvim/swap/
 set undodir=~/.local/share/nvim/undo/
+set spellfile=~/.local/share/nvim/site/spell/en.utf-8.add
+command! -bar SpellEn set spelllang=en spellfile=$HOME/.local/share/nvim/site/spell/en.utf-8.add
+command! -bar SpellDa set spelllang=da spellfile=$HOME/.local/share/nvim/site/spell/da.utf-8.add
 
 " ALL hotkeys
 " ============================================================
