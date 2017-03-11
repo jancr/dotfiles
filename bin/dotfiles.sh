@@ -1,8 +1,11 @@
-
+#!/usr/bin/env bash
 
 OS=`uname -s`
 my_dir=`pwd`
 
+########################################
+# OS specific dependencies
+########################################
 if [ $OS = "Darwin"]; then
 	echo "Not Implemented";
 	#install OSX dependencies
@@ -30,27 +33,24 @@ elif [ $OS = "Linux" ]; then
 	# cygwin
 fi;
 
-# antigen
+
+########################################
+# Other Dependencies
+########################################
+# antigen (zsh extension manager)
 curl https://cdn.rawgit.com/zsh-users/antigen/v1.4.0/bin/antigen.zsh > $HOME/bin/antigen.zsh
+
+# powerline, tmux and zsh dependency
+pip3 install --user powerline-status
 
 ########################################
 # vim / neovim
 ########################################
-# vim
-# install vundle, or change to vim-plug
-#ln -s $HOME/.config/nvim/init.vim $HOME/.vimrc
-#mkdir -p $HOME/.vim/colors
-#mkdir -p $HOME/.vim/rc
-#mkdir -p $HOME/.vim/swap
-#mkdir -p $HOME/.vim/undo
-#./install.py --clag-completer
-
 #nvim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-#mkdir -p $HOME/.config/nvim/rc
-mkdir -p $HOME/.conf/nvim/colors
+mkdir -p $HOME/.config/nvim/colors
 mkdir -p $HOME/.local/share/nvim/swap
 mkdir -p $HOME/.local/share/nvim/undo
 mkdir -p $HOME/.local/share/nvim/backup
@@ -71,12 +71,10 @@ cd $my_dir
 ########################################
 # tmux
 ########################################
-# powerline install instructions?!?!
-pip3 install --user powerline-status
 # ctrl+A, I
 
 ########################################
-# Ipython
+# ipython
 ########################################
 pip3 install jupyter_contrib_nbextensions
 pip3 install --upgrade jupyterthemes
