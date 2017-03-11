@@ -3,20 +3,35 @@
 OS=`uname -s`
 my_dir=`pwd`
 
-#if [ $OS = "Darwin"]; then
+if [ $OS = "Darwin"]; then
+	echo "Not Implemented";
 	#install OSX dependencies
+	brew install git curl tmux node cmake
 
 	# OSX specific stuff
-#else; if [ $OS = "Linux" ]; then
+elif [ $OS = "Linux" ]; then
+
+	# asumes debian/ubuntu
 	# install debian dependencies
 
+	# dependencies
+	sudo apt-get update
+	# python 2
+	sudo apt-get -y install python-ipython python-pip
+
+	# python 3
+	sudo apt-get -y install python3-ipython python3-pip
+
+	#other
+	sudo apt-get -y install git curl tmux nodejs cmake fonts-powerline
+
 	# debian specific stuff
-#else;
+#else
 	# cygwin
-#fi;
+fi;
 
 # antigen
-curl https://cdn.rawgit.com/zsh-users/antigen/v1.4.0/bin/antigen.zsh > $HOME/antigen.zsh
+curl https://cdn.rawgit.com/zsh-users/antigen/v1.4.0/bin/antigen.zsh > $HOME/bin/antigen.zsh
 
 ########################################
 # vim / neovim
@@ -57,6 +72,7 @@ cd $my_dir
 # tmux
 ########################################
 # powerline install instructions?!?!
+pip3 install --user powerline-status
 # ctrl+A, I
 
 ########################################

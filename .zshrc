@@ -21,7 +21,6 @@ antigen use oh-my-zsh
 antigen bundle pip
 antigen bundle command-not-found
 antigen bundle autojump
-antigen bundle brew
 antigen bundle compleat
 antigen bundle npm
 antigen bundle z
@@ -88,7 +87,8 @@ if [ $OS = "Darwin" ]; then
 	# compdef excel='open'
 	# compdef word='open'
 	# compdef powerpoint='open'
-else;
+elif [ $OS = "Linux" ]; then
+	alias node="nodejs"
 	alias c="xclip -selection clipboard"
 	alias v="xclip -selection clipboard -o"
 fi
