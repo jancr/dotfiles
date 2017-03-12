@@ -6,7 +6,7 @@ my_dir=`pwd`
 ########################################
 # OS specific dependencies
 ########################################
-if [ $OS = "Darwin"]; then
+if [ $OS = "Darwin" ]; then
 	echo "Not Implemented";
 	#install OSX dependencies
 	brew install git curl tmux node cmake
@@ -26,7 +26,7 @@ elif [ $OS = "Linux" ]; then
 	sudo apt-get -y install python3-ipython python3-pip
 
 	#other
-	sudo apt-get -y install git curl tmux nodejs cmake fonts-powerline
+	sudo apt-get -y install git curl tmux nodejs cmake fonts-powerline nvim vim
 
 	# debian specific stuff
 #else
@@ -35,13 +35,18 @@ fi;
 
 
 ########################################
-# Other Dependencies
+# powerline (tmux and zsh dependency)
+########################################
+if [ $OS = "Linux"]; then
+	sudo apt-get -y install powerline
+else
+	pip3 install --user powerline-status
+fi;
+
 ########################################
 # antigen (zsh extension manager)
+########################################
 curl https://cdn.rawgit.com/zsh-users/antigen/v1.4.0/bin/antigen.zsh > $HOME/bin/antigen.zsh
-
-# powerline, tmux and zsh dependency
-pip3 install --user powerline-status
 
 ########################################
 # vim / neovim
