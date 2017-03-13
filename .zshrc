@@ -1,7 +1,6 @@
  
 # Jan Christians Refsgaards .zshrc, originally inspired by Helen Cooks awesome zsh
 
-#
 OS=`uname -s`
 export TERM=xterm-256color
 ################################################################################
@@ -74,6 +73,8 @@ function vi_mode_prompt() {
 	echo "${${KEYMAP/vicmd/$VI_MODE}/(main|viins)/}"
 }
 
+export BULLETTRAIN_CUSTOM_BG='yellow'
+export BULLETTRAIN_CUSTOM_FG='black'
 export BULLETTRAIN_CUSTOM_MSG='$(vi_mode_prompt)'
 
 ################################################################################
