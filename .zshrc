@@ -10,6 +10,9 @@ export TERM=xterm-256color
 # use antibidy for some stuff because it is faster
 # antibody bundle < ~/.zsh/antibody.plugins >> ~/.zsh/antibody.sources
 
+# import zle before oh-my-zsh
+ zmodload zsh/zle
+
 # and antibody for the rest
 source ~/bin/antigen.zsh
 #antigen init ~/.zsh/.antogenrc
@@ -18,6 +21,7 @@ source ~/bin/antigen.zsh
 antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle vi-mode
 antigen bundle pip
 antigen bundle command-not-found
 antigen bundle autojump
@@ -52,12 +56,25 @@ setopt HIST_IGNORE_ALL_DUPS # history is de-duped
 setopt EXTENDED_GLOB
 
 ################################################################################
-# zsh vim mode is messed up, so we fix that
-bindkey '^R' history-incremental-search-backward
-bindkey "^?" backward-delete-char
-bindkey "^W" backward-kill-word 
-bindkey "^H" backward-delete-char      # Control-h also deletes the previous char
-bindkey "^U" backward-kill-line  
+# vim 
+export KEYTIMEOUT=1 # wait 0.1 sek after escape is clicked for input (default 0.4)
+
+# undo the things from vi-mode.plugin.zsh that does not work with bullet train
+export RPS1=""
+function vi_mode_prompt() {
+	# echo "${${KEYMAP/vicmd/NORMAL}/(main|viins)/INSERT}"
+	case $KEYMAP in
+		vicmd) 
+			# export BULLETTRAIN_CUSTOM_BG='black'
+			echo "NORMAL";;
+		viins|main)
+			# export BULLETTRAIN_CUSTOM_BG='yellow'
+			echo "INSERT";;
+	esac
+	echo "${${KEYMAP/vicmd/$VI_MODE}/(main|viins)/}"
+}
+
+export BULLETTRAIN_CUSTOM_MSG='$(vi_mode_prompt)'
 
 ################################################################################
 # Aliases and mappings
