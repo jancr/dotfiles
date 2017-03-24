@@ -56,6 +56,9 @@ setopt EXTENDED_GLOB
 
 ################################################################################
 # vim 
+bindkey '^xe' edit-command-line
+bindkey '^x^e' edit-command-line
+bindkey -M vicmd v edit-command-line
 export KEYTIMEOUT=1 # wait 0.1 sek after escape is clicked for input (default 0.4)
 
 # undo the things from vi-mode.plugin.zsh that does not work with bullet train
@@ -139,6 +142,12 @@ fancy-ctrl-z () {
 }
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
+
+
+################################################################################
+# no training wheels!
+################################################################################
+setopt rm_star_silent
 
 ################################################################################
 # stuff added by homebrew or because of homebrew
