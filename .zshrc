@@ -39,7 +39,7 @@ zle -N zle-line-init
 
 ################################################################################
 export PYTHONPATH=~/Projects/python_modules
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:$PATH:$HOME/.local/bin"
 # History settings
 
 export HISTFILE=~/.history
