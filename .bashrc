@@ -2,6 +2,8 @@
 
 OS=`uname -s`
 export PATH="$HOME/bin:$PATH:$HOME/.local/bin"
+[ -f $HOME/.config/zsh_extra ] && source $HOME/.config/zsh_extra
+[ -f $HOME/.local/qfc/bin/qfc.sh ] && source $HOME/.local/qfc/bin/qfc.sh
 
 if [ $OS = "Darwin" ]; then
 	# tab completion

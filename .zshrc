@@ -13,7 +13,7 @@ export TERM=xterm-256color
  zmodload zsh/zle
 
 # and antibody for the rest
-source ~/bin/antigen.zsh
+source ~/.local/bin/antigen.zsh
 #antigen init ~/.zsh/.antogenrc
 
 # Load the oh-my-zsh's library.
@@ -40,6 +40,9 @@ zle -N zle-line-init
 ################################################################################
 export PYTHONPATH=~/Projects/python_modules
 export PATH="$HOME/bin:$PATH:$HOME/.local/bin"
+[ -f $HOME/.config/zsh_extra ] && source $HOME/.config/zsh_extra
+[ -f $HOME/.local/qfc/bin/qfc.sh ] && source $HOME/.local/qfc/bin/qfc.sh
+
 
 # History settings
 
@@ -175,6 +178,4 @@ if [[ -a $HOME/.config/zshrc_extra.sh ]]; then
 fi
 
 export DISABLE_AUTO_TITLE="true" 
-
-source $HOME/.config/zsh_extra
 

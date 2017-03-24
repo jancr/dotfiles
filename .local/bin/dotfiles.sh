@@ -103,3 +103,8 @@ jupyter nbextension enable vim_binding/vim_binding
 jt -t onedork
 
 
+########################################
+# Other
+########################################
+# qfs (Quick Command-line File Completion)
+git clone https://github.com/pindexis/qfc $HOME/.local/qfc/bin/qfs.sh
