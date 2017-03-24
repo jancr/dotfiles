@@ -175,3 +175,6 @@ if [[ -a $HOME/.config/zshrc_extra.sh ]]; then
 fi
 
 export DISABLE_AUTO_TITLE="true" 
+
+source $HOME/.config/zsh_extra
+

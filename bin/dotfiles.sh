@@ -47,6 +47,8 @@ fi;
 # antigen (zsh extension manager)
 ########################################
 curl https://cdn.rawgit.com/zsh-users/antigen/v1.4.0/bin/antigen.zsh > $HOME/bin/antigen.zsh
+# make file for system specific configuration
+touch $HOME/.config/zsh_extra
 
 ########################################
 # vim / neovim
