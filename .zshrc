@@ -40,6 +40,7 @@ zle -N zle-line-init
 ################################################################################
 export PYTHONPATH=~/Projects/python_modules
 export PATH="$HOME/bin:$PATH:$HOME/.local/bin"
+
 # History settings
 
 export HISTFILE=~/.history
@@ -102,9 +103,8 @@ if [ $OS = "Darwin" ]; then
 	alias excel='/Applications/Microsoft Excel.app'
 	alias word='/Applications/Microsoft Word.app'
 	alias powerpoint='/Applications/Microsoft PowerPoint.app'
-	# alias excel='open -a "/Applications/Microsoft Excel.app"'
-	# alias word='open -a "/Applications/Microsoft Word.app"'
-	# alias powerpoint='open -a "/Applications/Microsoft PowerPoint.app"'
+	export PATH="$PATH:/$HOME/Library/Python/2.7/bin"
+	export PATH="$PATH:/$HOME/Library/Python/3.6/bin"
 	# compdef excel='open'
 	# compdef word='open'
 	# compdef powerpoint='open'
