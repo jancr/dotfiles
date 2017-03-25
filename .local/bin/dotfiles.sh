@@ -45,8 +45,8 @@ pip3 install --user powerline-status
 ################################################################################
 # Shells
 ################################################################################
-touch $HOME/.config/zsh_extra
-touch $HOME/.config/bash_extra
+touch $HOME/.config/zsh/extra.zsh
+touch $HOME/.config/bash_extra.sh
 
 ########################################
 # antigen (zsh extension manager)

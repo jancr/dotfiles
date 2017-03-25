@@ -27,6 +27,7 @@ antigen bundle autojump
 antigen bundle compleat
 antigen bundle npm
 antigen bundle z
+#antigen bundle fasd
 
 # other repos
 antigen bundle tarruda/zsh-autosuggestions
@@ -38,14 +39,17 @@ antigen apply
 zle -N zle-line-init
 
 ################################################################################
+# mangle PATHS
 export PYTHONPATH=~/Projects/python_modules
 export PATH="$HOME/bin:$PATH:$HOME/.local/bin"
-[ -f $HOME/.config/zsh_extra ] && source $HOME/.config/zsh_extra
-[ -f $HOME/.local/qfc/bin/qfc.sh ] && source $HOME/.local/qfc/bin/qfc.sh
 
+# source sub configs
+[ -f $HOME/.config/zsh/extra.zsh ] && source $HOME/.config/zsh/extra.zsh
+[ -f $HOME/.local/qfc/bin/qfc.sh ] && source $HOME/.local/qfc/bin/qfc.sh
+source $HOME/.config/zsh/aliases.zsh
+source $HOME/.config/zsh/vim.zsh
 
 # History settings
-
 export HISTFILE=~/.history
 export HIST_STAMPS="dd/mm/yyyy"
 setopt EXTENDED_HISTORY     # store date in .history
@@ -57,66 +61,6 @@ setopt HIST_IGNORE_ALL_DUPS # history is de-duped
 
 # enable **/file expansion, negation [^ab]*, and more
 setopt EXTENDED_GLOB
-
-################################################################################
-# vim 
-bindkey '^xe' edit-command-line
-bindkey '^x^e' edit-command-line
-bindkey -M vicmd v edit-command-line
-export KEYTIMEOUT=1 # wait 0.1 sek after escape is clicked for input (default 0.4)
-
-# undo the things from vi-mode.plugin.zsh that does not work with bullet train
-export RPS1=""
-function vi_mode_prompt() {
-	# echo "${${KEYMAP/vicmd/NORMAL}/(main|viins)/INSERT}"
-	case $KEYMAP in
-		vicmd) 
-			# export BULLETTRAIN_CUSTOM_BG='black'
-			echo "NORMAL";;
-		viins|main)
-			# export BULLETTRAIN_CUSTOM_BG='yellow'
-			echo "INSERT";;
-	esac
-	echo "${${KEYMAP/vicmd/$VI_MODE}/(main|viins)/}"
-}
-
-export BULLETTRAIN_CUSTOM_BG='yellow'
-export BULLETTRAIN_CUSTOM_FG='black'
-export BULLETTRAIN_CUSTOM_MSG='$(vi_mode_prompt)'
-
-################################################################################
-# Aliases and mappings
-if [ $+commands[nvim] ]; then
-	export EDITOR=`which nvim`
-	alias vim='nvim';
-else
-	export EDITOR=`which vim`
-fi;
-
-alias chrome=google-chrome
-# TODO alias and completion for the alias
-alias t="todo.sh"
-
-############################################################
-# distribution specific
-############################################################
-if [ $OS = "Darwin" ]; then
-	alias c="pbcopy"
-	alias v="pbpaste"
-	alias excel='/Applications/Microsoft Excel.app'
-	alias word='/Applications/Microsoft Word.app'
-	alias powerpoint='/Applications/Microsoft PowerPoint.app'
-	export PATH="$PATH:/$HOME/Library/Python/2.7/bin"
-	export PATH="$PATH:/$HOME/Library/Python/3.6/bin"
-	# compdef excel='open'
-	# compdef word='open'
-	# compdef powerpoint='open'
-elif [ $OS = "Linux" ]; then
-	alias node="nodejs"
-	alias c="xclip -selection clipboard"
-	alias v="xclip -selection clipboard -o"
-fi
-
 
 ################################################################################
 # UTF-8
@@ -131,51 +75,10 @@ export LC_TIME="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"  
 
 ################################################################################
-# functions
-################################################################################
-# makes ztrl go back to vim
-fancy-ctrl-z () {
-  if [[ $#BUFFER -eq 0 ]]; then
-    BUFFER="fg"
-    zle accept-line
-  else
-    zle push-input
-    zle clear-screen
-  fi
-}
-zle -N fancy-ctrl-z
-bindkey '^Z' fancy-ctrl-z
-
-
-################################################################################
 # no training wheels!
 ################################################################################
 setopt rm_star_silent
 
 ################################################################################
-# stuff added by homebrew or because of homebrew
-################################################################################
-if [ $OS = "Darwin" ]; then
-	#unalias run-help
-	autoload run-help
-	HELPDIR=/usr/local/share/zsh/help
-
-	export PERL5LIB="/usr/local/Cellar/perl/5.24.1/lib"
-	export PERL_MB_OPT='--install_base "/usr/local/Cellar/perl/5.24.0_1/lib/perl5/5.24.1/darwin-thread-multi-2level/"'
-	export PERL_MM_OPT="INSTALL_BASE=/usr/local/Cellar/perl/5.24.1/lib/perl5/5.24.1/darwin-thread-multi-2level/"
-	# add node packages to path
-	export PATH="$PATH:/usr/local/Cellar/node/6.6.0/libexec/npm/bin/"
-	export PATH="/usr/local/sbin:$PATH"
-
-#else;
-fi;
-
-
-################################################################################
-# extra rc file that is 'server specific and not part of the yadm repository
-if [[ -a $HOME/.config/zshrc_extra.sh ]]; then
-	source $HOME/.config/zshrc_extra.sh
-fi
-
 export DISABLE_AUTO_TITLE="true" 
 

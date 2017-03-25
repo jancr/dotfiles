@@ -5,7 +5,7 @@ command_exists () {
 
 OS=`uname -s`
 export PATH="$HOME/bin:$PATH:$HOME/.local/bin"
-[ -f $HOME/.config/bash_extra ] && source $HOME/.config/bash_extra
+[ -f $HOME/.config/bash_extra.sh ] && source $HOME/.config/bash_extra.sh
 [ -f $HOME/.local/qfc/bin/qfc.sh ] && source $HOME/.local/qfc/bin/qfc.sh
 [ -f $HOME/.local/qfc/bin/qfc.sh ] && source $HOME/.local/qfc/bin/qfc.sh
 
@@ -38,7 +38,7 @@ fi
 ################################################################################
 # Path to the bash it configuration
 export BASH_IT="$HOME/.local/bash_it"
-export BASH_IT_CUSTOM="$HOME/.local/bash_it_custom"
+export BASH_IT_CUSTOM="$HOME/.config/bash_it_custom"
 
 # Lock and Load a custom theme file
 # location /.bash_it/themes/
