@@ -7,7 +7,6 @@ my_dir=`pwd`
 # OS specific dependencies
 ########################################
 if [ $OS = "Darwin" ]; then
-	echo "Not Implemented";
 	#install OSX dependencies
 	brew install git curl tmux node cmake
 
@@ -39,16 +38,43 @@ fi;
 ########################################
 if [ $OS = "Linux"]; then
 	sudo apt-get -y install powerline
-else
-	pip3 install --user powerline-status
-fi;
+fi
+pip install --user powerline-status
+pip3 install --user powerline-status
+
+################################################################################
+# Shells
+################################################################################
+touch $HOME/.config/zsh_extra
+touch $HOME/.config/bash_extra
 
 ########################################
 # antigen (zsh extension manager)
 ########################################
-curl https://cdn.rawgit.com/zsh-users/antigen/v1.4.0/bin/antigen.zsh > $HOME/bin/antigen.zsh
+curl https://cdn.rawgit.com/zsh-users/antigen/v1.4.0/bin/antigen.zsh > $HOME/.local/bin/antigen.zsh
 # make file for system specific configuration
-touch $HOME/.config/zsh_extra
+########################################
+# bash_it (if no zsh is avalible)
+########################################
+#!/usr/bin/env bash
+git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.local/bash_it
+bash $HOME/.local/bash_it/install.sh --no-modify-config
+source ~/.bashrc
+
+#bash-it alias
+bash-it enable alias clipboard 
+
+# bash-it plugin
+bash-it enable plugin autojump base battery browser dirs edit-mode-vi extract git hg history latex less-pretty-cat node pyenv python ruby ssh tmux todo visual-studio-code fasd
+
+# bash-it completions
+bash-it enable completion bash-it bundler conda defaults dirs django docker gem git makefile npm pip pip3 rake ssh tmux todo virtualbox
+
+if [ $OS = "Linux" ]; then
+	bash-it enable alias apt 
+elif [ $OS = "Darwin" ]; then
+	bash-it search osx brew --enable
+fi
 
 ########################################
 # vim / neovim
@@ -102,9 +128,10 @@ cd $my_dir
 jupyter nbextension enable vim_binding/vim_binding
 jt -t onedork
 
-
 ########################################
+
 # Other
 ########################################
 # qfs (Quick Command-line File Completion)
 git clone https://github.com/pindexis/qfc $HOME/.local/qfc/bin/qfs.sh
+

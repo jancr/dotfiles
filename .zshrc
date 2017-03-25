@@ -10,7 +10,7 @@ export TERM=xterm-256color
 # antibody bundle < ~/.zsh/antibody.plugins >> ~/.zsh/antibody.sources
 
 # import zle before oh-my-zsh
- zmodload zsh/zle
+zmodload zsh/zle
 
 # and antibody for the rest
 source ~/.local/bin/antigen.zsh
