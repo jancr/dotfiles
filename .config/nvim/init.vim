@@ -175,23 +175,24 @@ set ic
 
 
 " ===== Awesome line number magic =====
+" silent! suppresses error messages from before vim 7.3
 nnoremap <Leader>l :call NumberToggle()<cr>
 function! NumberToggle()
     if(&relativenumber == 1)
-		set nonumber
-		set norelativenumber
+		silent! set nonumber
+		silent! set norelativenumber
     else
-		set number
-		set relativenumber
+		silent! set number
+		silent! set relativenumber
     endif
 endfunction
-autocmd FocusLost * set norelativenumber
-autocmd FocusGained * set relativenumber
+autocmd FocusLost * silent! set norelativenumber
+autocmd FocusGained * silent! set relativenumber
 
-autocmd InsertEnter * set norelativenumber
-autocmd InsertLeave * set relativenumber
-set number
-set relativenumber
+autocmd InsertEnter * silent! set norelativenumber
+autocmd InsertLeave * silent! set relativenumber
+silent! set number
+silent! set relativenumber
 " ============================================================
 
 "============================================================================

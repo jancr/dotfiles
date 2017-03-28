@@ -104,8 +104,10 @@ cd $my_dir
 ########################################
 # tmux
 ########################################
+# cloning and crtl+A, Is now done from .tmux.conf itself
 # ctrl+A, I
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+#git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+touch $HOME/.config/tmux/local.conf
 
 ########################################
 # ipython
