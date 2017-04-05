@@ -1,11 +1,6 @@
 
-" share stuff between vim and neovim
-"set runtimepath+=$HOME/.vim
-"source $HOME/.vimrc
-
 set encoding=utf-8
-"
-"autocmd! bufwritepost .vimrc source %
+
 " ============================= vim-plug  ==============================
 call plug#begin()
 " On-demand loading
@@ -30,8 +25,12 @@ filetype plugin indent on    " required
 " ============================================================
 " file type specific vim config
 " ============================================================
-autocmd BufNewFile,BufRead *.tex source $HOME/.config/nvim/rc/latex.vim
+" programming languages
 autocmd BufNewFile,BufRead *.py  source $HOME/.config/nvim/rc/python.vim
+autocmd BufNewFile,BufRead *.c,*.cpp  source $HOME/.config/nvim/rc/c.vim
+"autocmd BufNewFile,BufRead *.cpp  source $HOME/.config/nvim/rc/c.vim
+" Other
+autocmd BufNewFile,BufRead *.tex source $HOME/.config/nvim/rc/latex.vim
 autocmd BufNewFile,BufRead *.md  source $HOME/.config/nvim/rc/markdown.vim
 
 
@@ -57,8 +56,6 @@ set whichwrap+=<,>,h,l,[,]
 "set matchpairs=(:),[:],{:},<:>
 set matchpairs+=<:>,«:»
 
-
-
 " nnoremap . <NOP>
 set autoread " reload file when changes happen in other editors
 set tags=./tags
@@ -83,17 +80,14 @@ set nolist  " list disables linebreak
 set textwidth=0
 set wrapmargin=0
 
-
 " ============================================================
 " Color scheme and other ‘estetics’
 " ============================================================"
 colorscheme wombat256jcr
 let g:airline_theme='badwolf'
-"set t_Co=256
 set colorcolumn=100
 "set tw=100  " width of document (used by gd), default was 79
 highlight ColorColumn ctermbg=233
-
 
 " ============================================================
 " makes yanked text be yanked into the global clipboard
@@ -103,7 +97,6 @@ set clipboard=unnamedplus
 if $TMUX == ''
     set clipboard+=unnamed
 endif
-
 
 " ============================================================
 " Fold stuff
@@ -154,52 +147,12 @@ set smartcase
 
 " makes / and ? case insensitive
 set ic
+"============================================================================
+" Source custom plugin settings
+"============================================================================
+source $HOME/.config/nvim/rc/plugins.vim
 
 "============================================================================
-"							Awesome Functions								=
-"						And settings related to them						=
+" Source user defined functions
 "============================================================================
-
-" === Make shift operations in Visual mode stay in Visual mode afterwards ===
-" vmap <expr> > ShiftAndKeepVisualSelection(">")
-" vmap <expr> < ShiftAndKeepVisualSelection("<")
-
-" function! ShiftAndKeepVisualSelection(cmd, mode)
-	" set nosmartindent
-	" if mode() =~ '[Vv]'
-		" return a:cmd . ":set smartindent\<CR>gv"
-	" else
-		" return a:cmd . ":set smartindent\<CR>"
-	" endif
-" endfunction
-
-
-" ===== Awesome line number magic =====
-" silent! suppresses error messages from before vim 7.3
-nnoremap <Leader>l :call NumberToggle()<cr>
-function! NumberToggle()
-    if(&relativenumber == 1)
-		silent! set nonumber
-		silent! set norelativenumber
-    else
-		silent! set number
-		silent! set relativenumber
-    endif
-endfunction
-autocmd FocusLost * silent! set norelativenumber
-autocmd FocusGained * silent! set relativenumber
-
-autocmd InsertEnter * silent! set norelativenumber
-autocmd InsertLeave * silent! set relativenumber
-silent! set number
-silent! set relativenumber
-" ============================================================
-
-"============================================================================
-" Plugin specific stuff
-"============================================================================
-let g:NERDSpaceDelims = 1
-let g:NERDCommentEmptyLines = 0
-
-let g:pyflakes_use_quickfix = 0
-
+source $HOME/.config/nvim/rc/functions.vim

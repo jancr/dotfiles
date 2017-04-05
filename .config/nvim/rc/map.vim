@@ -30,3 +30,6 @@ imap <C-5> <Esc>5gt
 
 " wierd ones that I should use
 noremap  <Leader>wc :%!column -t
+
+map <C-/> "<Leader>c "
+imap <C-/> "<C-O><Leader>c "
