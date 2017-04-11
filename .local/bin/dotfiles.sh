@@ -6,30 +6,32 @@ my_dir=`pwd`
 ########################################
 # OS specific dependencies
 ########################################
-if [ $OS = "Darwin" ]; then
-	#install OSX dependencies
-	brew install git curl tmux node cmake
+if [ $1 -ne "--no-admin" ]; then
+	if [ $OS = "Darwin" ]; then
+		#install OSX dependencies
+		brew install git curl tmux node cmake
 
-	# OSX specific stuff
-elif [ $OS = "Linux" ]; then
+		# OSX specific stuff
+	elif [ $OS = "Linux" ]; then
 
-	# asumes debian/ubuntu
-	# install debian dependencies
+		# asumes debian/ubuntu
+		# install debian dependencies
 
-	# dependencies
-	sudo apt-get update
-	# python 2
-	sudo apt-get -y install python-ipython python-pip
+		# dependencies
+		sudo apt-get update
+		# python 2
+		sudo apt-get -y install python-ipython python-pip
 
-	# python 3
-	sudo apt-get -y install python3-ipython python3-pip
+		# python 3
+		sudo apt-get -y install python3-ipython python3-pip
 
-	#other
-	sudo apt-get -y install git curl tmux nodejs cmake fonts-powerline nvim vim
+		#other
+		sudo apt-get -y install git curl tmux nodejs cmake fonts-powerline nvim vim
 
-	# debian specific stuff
-#else
-	# cygwin
+		# debian specific stuff
+	#else
+		# cygwin
+	fi;
 fi;
 
 
@@ -45,6 +47,7 @@ pip3 install --user powerline-status
 ################################################################################
 # Shells
 ################################################################################
+mkdir -p $HOME/.config
 touch $HOME/.config/zsh/extra.zsh
 touch $HOME/.config/bash_extra.sh
 
@@ -106,7 +109,8 @@ cd $my_dir
 ########################################
 # cloning and crtl+A, Is now done from .tmux.conf itself
 # ctrl+A, I
-#git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm 
+mkdir -p $HOME/.config/tmux
 touch $HOME/.config/tmux/local.conf
 
 ########################################

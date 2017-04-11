@@ -41,7 +41,7 @@ zle -N zle-line-init
 ################################################################################
 # mangle PATHS
 export PYTHONPATH=~/Projects/python_modules
-export PATH="$HOME/bin:$PATH:$HOME/.local/bin"
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
 # source sub configs
 [ -f $HOME/.config/zsh/extra.zsh ] && source $HOME/.config/zsh/extra.zsh
