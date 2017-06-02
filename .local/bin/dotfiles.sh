@@ -11,6 +11,9 @@ if [ $1 -ne "--no-admin" ]; then
 		#install OSX dependencies
 		brew install git curl tmux node cmake
 
+		# iperl dependencies
+		brew install zeromq libmagic
+
 		# OSX specific stuff
 	elif [ $OS = "Linux" ]; then
 
@@ -20,14 +23,17 @@ if [ $1 -ne "--no-admin" ]; then
 		# dependencies
 		sudo apt-get update
 		# python 2
-		sudo apt-get -y install python-ipython python-pip
+		sudo apt-get -y install python-ipython python-pip ipython-notebook
 
 		# python 3
-		sudo apt-get -y install python3-ipython python3-pip
+		sudo apt-get -y install python3-ipython python3-pip ipython-notebook
 
 		#other
 		sudo apt-get -y install git curl tmux nodejs cmake fonts-powerline nvim vim
 
+
+		# dependencies for iperl
+		sudo apt-get install libzmq3-dev libmagic-dev
 		# debian specific stuff
 	#else
 		# cygwin
@@ -114,7 +120,7 @@ mkdir -p $HOME/.config/tmux
 touch $HOME/.config/tmux/local.conf
 
 ########################################
-# ipython
+# jupyter (ipython and iperl)
 ########################################
 pip3 install jupyter_contrib_nbextensions
 pip3 install --upgrade jupyterthemes
@@ -133,6 +139,12 @@ cd $my_dir
 # enable dark theme
 jupyter nbextension enable vim_binding/vim_binding
 jt -t onedork
+
+####################
+# iperl
+git clone https://github.com/EntropyOrg/p5-Devel-IPerl.git $HOME/.local/p5-iperl
+ln -s $HOME/local/p5-iperl/bin/iperl $HOME/.local/bin/iperl
+
 
 ########################################
 
