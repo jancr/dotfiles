@@ -148,6 +148,18 @@ ln -s $HOME/local/p5-iperl/bin/iperl $HOME/.local/bin/iperl
 
 
 ########################################
+# fpp
+########################################
+if [ $OS = "Darwin" ]; then
+	brew install fpp
+else; then
+	cd $HOME/.local/
+	git clone https://github.com/facebook/PathPicker.git
+	cd PathPicker/
+	ln -s "$(pwd)/fpp" $HOME/.local/bin/fpp
+	cd $my_dir
+fi;
+########################################
 
 # Other
 ########################################
