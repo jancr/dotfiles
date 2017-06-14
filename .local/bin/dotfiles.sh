@@ -101,7 +101,8 @@ nvim +PlugInstall +qall
 
 # compile tab completion
 cd $HOME/.config/nvim/plugged/YouCompleteMe
-./install.py --clang-completer
+# ./install.py --clang-completer
+python3 install.py --clang-completer
 cd $my_dir
 
 ########################################
