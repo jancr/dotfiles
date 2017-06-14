@@ -19,6 +19,9 @@ call plug#begin()
 	Plug 'tpope/vim-surround'
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
+	" Git:
+	Plug 'tpope/vim-fugitive'
+
 	" Markdown:
 	Plug 'godlygeek/tabular'
 	Plug 'plasticboy/vim-markdown'
