@@ -11,6 +11,7 @@ call plug#begin()
 		set termguicolors
 	endif
 
+	" General:
 	Plug 'Valloric/YouCompleteMe'
 	Plug 'scrooloose/nerdcommenter'
 	"Plug 'vim-perl/vim-perl'
@@ -18,7 +19,13 @@ call plug#begin()
 	Plug 'tpope/vim-surround'
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
-call plug#end()
+	" Git:
+	Plug 'tpope/vim-fugitive'
+
+	" Markdown:
+	Plug 'godlygeek/tabular'
+	Plug 'plasticboy/vim-markdown'
+	call plug#end()
 
 let  mapleader = ','
 filetype plugin indent on    " required
@@ -26,7 +33,7 @@ filetype plugin indent on    " required
 " file type specific vim config
 " ============================================================
 " programming languages
-autocmd BufNewFile,BufRead *.py  source $HOME/.config/nvim/rc/python.vim
+autocmd BufNewFile,BufRead *.py, *.ipy  source $HOME/.config/nvim/rc/python.vim
 autocmd BufNewFile,BufRead *.c,*.cpp  source $HOME/.config/nvim/rc/c.vim
 "autocmd BufNewFile,BufRead *.cpp  source $HOME/.config/nvim/rc/c.vim
 " Other
