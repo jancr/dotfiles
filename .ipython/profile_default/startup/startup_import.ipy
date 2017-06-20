@@ -6,4 +6,4 @@ mpl.style.use('ggplot')
 import seaborn as sns
 
 sns.set(color_codes=True)
-pd.set_option('display.float_format', tools.format_e)
+#pd.set_option('display.float_format', tools.format_e)
