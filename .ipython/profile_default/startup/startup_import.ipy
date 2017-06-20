@@ -1,10 +1,9 @@
 import pandas as pd
-pd.set_option('max_column', 500)
 import numpy as np
-import matplotlib
-%matplotlib inline
+import matplotlib as mlp
 import matplotlib.pyplot as plt
 matplotlib.style.use('ggplot')
 import seaborn as sns
+
 sns.set(color_codes=True)
-#pd.set_option('display.float_format', tools.format_e)
+pd.set_option('display.float_format', tools.format_e)
