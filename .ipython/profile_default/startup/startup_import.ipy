@@ -1,8 +1,8 @@
 import pandas as pd
 import numpy as np
-import matplotlib as mlp
+import matplotlib as mpl
 import matplotlib.pyplot as plt
-matplotlib.style.use('ggplot')
+mpl.style.use('ggplot')
 import seaborn as sns
 
 sns.set(color_codes=True)
