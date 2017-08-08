@@ -22,6 +22,9 @@ call plug#begin()
 	" Git:
 	Plug 'tpope/vim-fugitive'
 
+	" Color:
+	Plug 'dracula/vim'
+
 	" Markdown:
 	Plug 'godlygeek/tabular'
 	Plug 'plasticboy/vim-markdown'
@@ -90,7 +93,7 @@ set wrapmargin=0
 " ============================================================
 " Color scheme and other ‘estetics’
 " ============================================================"
-colorscheme wombat256jcr
+colorscheme dracula
 let g:airline_theme='badwolf'
 set colorcolumn=100
 "set tw=100  " width of document (used by gd), default was 79
@@ -163,3 +166,11 @@ source $HOME/.config/nvim/rc/plugins.vim
 " Source user defined functions
 "============================================================================
 source $HOME/.config/nvim/rc/functions.vim
+
+"============================================================================
+" Hacks (change stuff at the to overwrite plugin behavior
+"============================================================================
+" make background the terminals color:
+hi Normal             ctermfg=252             ctermbg=none            cterm=none              guifg=#e3e0d7   guibg=NONE     gui=none
+
+
