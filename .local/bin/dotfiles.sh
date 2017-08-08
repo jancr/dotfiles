@@ -13,7 +13,19 @@ if [ $1 -ne "--no-admin" ]; then
 
 		# iperl dependencies
 		brew install zeromq libmagic
-
+		
+		# gnu tools:
+		brew install coreutils
+		brew tap homebrew/dupes 
+		brew install binutils diffutils gawk wget gzip screen watch gnutls
+		brew install ed --with-default-names
+		brew install findutils --with-default-names
+		brew install gnu-indent --with-default-names
+		brew install gnu-sed --with-default-names
+		brew install gnu-tar --with-default-names
+		brew install gnu-which --with-default-names
+		brew install grep --with-default-names
+		brew install wdiff --with-gettext
 		# OSX specific stuff
 	elif [ $OS = "Linux" ]; then
 
@@ -137,9 +149,9 @@ cd vim_binding
 ln -s $HOME/.config/ln/jupyter_vim_binding.css vim_bindings.css
 cd $my_dir
 
-# enable dark theme
+# enable dark theme # and 100 cell width
 jupyter nbextension enable vim_binding/vim_binding
-jt -t onedork
+jt -t onedork-f roboto -fs 12 -cellw 90%
 
 ####################
 # iperl

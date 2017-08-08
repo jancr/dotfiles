@@ -40,7 +40,7 @@ zle -N zle-line-init
 
 ################################################################################
 # mangle PATHS
-export PYTHONPATH=~/Projects/python_modules
+export PYTHONPATH="lib:$HOME/Projects/python_modules"
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
 # source sub configs
@@ -48,6 +48,9 @@ export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 [ -f $HOME/.local/qfc/bin/qfc.sh ] && source $HOME/.local/qfc/bin/qfc.sh
 source $HOME/.config/zsh/aliases.zsh
 source $HOME/.config/zsh/vim.zsh
+# if [OS == 'Darwin' && -f $HOME/.config/zsh/darwin.zsh]; then
+	# source $HOME/.config/zsh/darwin.zsh
+# fi;
 
 # History settings
 export HISTFILE=~/.history
