@@ -17,6 +17,8 @@ if [ $1 -ne "--no-admin" ]; then
 		# gnu tools:
 		brew install coreutils
 		brew tap homebrew/dupes 
+		brew tap homebrew/science
+		brew install transpose
 		brew install binutils diffutils gawk wget gzip screen watch gnutls
 		brew install ed --with-default-names
 		brew install findutils --with-default-names

@@ -11,7 +11,7 @@ fi
 osascript -e 'tell application "iTerm" to activate' 
 osascript -e 'tell application "System Events" to tell process "iTerm" to keystroke "t" using command down'  
 osascript -e 'tell application "System Events" to tell process "iTerm" to keystroke "tabset --title hydra"' -e 'tell application "System Events" to tell process "iTerm" to key code 52'
-osascript -e 'tell application "System Events" to tell process "iTerm" to keystroke "ssh -Y hydra.intomics.com"' -e 'tell application "System Events" to tell process "iTerm" to key code 52'
+osascript -e 'tell application "System Events" to tell process "iTerm" to keystroke "ssh -Y hydra"' -e 'tell application "System Events" to tell process "iTerm" to key code 52'
 osascript -e 'tell application "System Events" to tell process "iTerm" to keystroke "tmux attach"' -e 'tell application "System Events" to tell process "iTerm" to key code 52'
 
 osascript -e 'tell application "iTerm" to activate' 
