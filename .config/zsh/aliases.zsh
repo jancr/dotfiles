@@ -10,6 +10,7 @@ fi;
 alias chrome=google-chrome
 # TODO alias and completion for the alias
 alias t="todo.sh"
+alias iperl="$HOME/.local/p5-iperl/bin/iperl"
 
 if [ $OS = "Darwin" ]; then
 	alias c="pbcopy"

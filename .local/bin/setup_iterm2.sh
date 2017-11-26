@@ -21,6 +21,8 @@ osascript -e 'tell application "System Events" to tell process "iTerm" to keystr
 osascript -e 'tell application "iTerm" to activate' 
 osascript -e 'tell application "System Events" to keystroke "1" using command down' 
 
+#osascript -e 'tell application "Tunnelblick" connect "Intomics VPN"'
+
 # open tmux and kill the new session
 osascript -e 'tell application "System Events" to tell process "iTerm" to keystroke "tmux attach"' -e 'tell application "System Events" to tell process "iTerm" to key code 52'
 # osascript -e 'tell application "System Events" to tell process "iTerm" to keystroke "a" using controll down' 
