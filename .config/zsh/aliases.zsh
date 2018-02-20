@@ -12,6 +12,7 @@ alias chrome=google-chrome
 alias t="todo.sh"
 alias iperl="$HOME/.local/p5-iperl/bin/iperl"
 
+
 if [ $OS = "Darwin" ]; then
 	alias c="pbcopy"
 	alias v="pbpaste"
@@ -29,3 +30,8 @@ elif [ $OS = "Linux" ]; then
 	alias v="xclip -selection clipboard -o"
 fi
 
+# function aliases
+#
+function cpu_hog {
+	ps -eo pcpu,user | egrep "\s$1\$" | cut -f 1 -d ' ' | python3 -c "import sys; print(sum(map(float, sys.stdin.read().split())))"
+}

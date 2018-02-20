@@ -28,7 +28,10 @@ call plug#begin()
 	" Markdown:
 	Plug 'godlygeek/tabular'
 	Plug 'plasticboy/vim-markdown'
-	call plug#end()
+
+	" Python:
+	Plug 'https://github.com/tweekmonster/impsort.vim'
+call plug#end()
 
 let  mapleader = ','
 filetype plugin indent on    " required
