@@ -37,6 +37,7 @@ filetype plugin indent on    " required
 " ============================================================
 " programming languages
 autocmd BufNewFile,BufRead Snakefile,*.py,*.ipy  source $HOME/.config/nvim/rc/python.vim
+autocmd BufNewFile,BufRead *.cs source $HOME/.config/nvim/rc/cs.vim
 autocmd BufNewFile,BufRead *.c,*.cpp  source $HOME/.config/nvim/rc/c.vim
 "autocmd BufNewFile,BufRead *.cpp  source $HOME/.config/nvim/rc/c.vim
 " Other
