@@ -32,6 +32,6 @@ fi
 
 # function aliases
 #
-function cpu_hog {
-	ps -eo pcpu,user | egrep "\s$1\$" | cut -f 1 -d ' ' | python3 -c "import sys; print(sum(map(float, sys.stdin.read().split())))"
-}
+# function cpu_hog {
+	# ps -eo pcpu,user | egrep "\s$1\$" | cut -f 1 -d ' ' | python3 -c "import sys; print(sum(map(float, sys.stdin.read().split())))"
+# }

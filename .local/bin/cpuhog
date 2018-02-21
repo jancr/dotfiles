@@ -1,0 +1,31 @@
+#!/usr/bin/env python3
+
+import os
+import sys
+import subprocess
+import collections
+
+def run(user_name_or_count='5'):
+    n_cpus = os.cpu_count()
+    ps = subprocess.Popen(('ps', '-eo', 'pcpu,user'), stdout=subprocess.PIPE)
+    users = collections.defaultdict(float)
+    ps.stdout.readline()  # skip header
+    for line in ps.stdout:
+        cpu, user = line.decode('utf8').strip().split(' ')
+        users[user] += float(cpu) / 100
+    if user_name_or_count.isnumeric():
+        cpu_user = [(cpu, user) for (user, cpu) in users.items()]
+        cpu_user.sort(reverse=True)
+        length = max(map(len, list(zip(*cpu_user[:int(user_name_or_count)]))[1])) + 1
+        for cpu, user in cpu_user[:int(user_name_or_count)]:
+            user_name = "{:<{length}}".format(user+':', length=length)
+            print("{} {:.3f}/{} ({:.1f}%)".format(user_name, cpu, n_cpus, 100 * cpu / n_cpus))
+    else:
+        cpu = users[user_name_or_count]
+        print("{:.3f}/{} ({:.1f}%)".format(cpu, n_cpus, 100 * cpu / n_cpus))
+
+if __name__ == '__main__':
+    if len(sys.argv) == 2:
+        run(sys.argv[1])
+    else:
+        run()
