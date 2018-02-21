@@ -29,6 +29,8 @@ if [ $1 -ne "--no-admin" ]; then
 		brew install grep --with-default-names
 		brew install wdiff --with-gettext
 		# OSX specific stuff
+		wget https://www.iterm2.com/utilities/imgcat -P ~/.local/bin
+		chmod +x ~/.local/bin/imgcat
 	elif [ $OS = "Linux" ]; then
 
 		# asumes debian/ubuntu

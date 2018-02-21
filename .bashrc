@@ -76,3 +76,4 @@ source $BASH_IT/bash_it.sh
 # custom stuff
 ################################################################################
 set -o emacs
+export PYTHONPATH='.'

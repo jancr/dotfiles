@@ -28,7 +28,10 @@ call plug#begin()
 	" Markdown:
 	Plug 'godlygeek/tabular'
 	Plug 'plasticboy/vim-markdown'
-	call plug#end()
+
+	" Python:
+	Plug 'https://github.com/tweekmonster/impsort.vim'
+call plug#end()
 
 let  mapleader = ','
 filetype plugin indent on    " required
@@ -37,11 +40,13 @@ filetype plugin indent on    " required
 " ============================================================
 " programming languages
 autocmd BufNewFile,BufRead Snakefile,*.py,*.ipy  source $HOME/.config/nvim/rc/python.vim
+autocmd BufNewFile,BufRead *.cs source $HOME/.config/nvim/rc/cs.vim
 autocmd BufNewFile,BufRead *.c,*.cpp  source $HOME/.config/nvim/rc/c.vim
 "autocmd BufNewFile,BufRead *.cpp  source $HOME/.config/nvim/rc/c.vim
 " Other
 autocmd BufNewFile,BufRead *.tex source $HOME/.config/nvim/rc/latex.vim
 autocmd BufNewFile,BufRead *.md  source $HOME/.config/nvim/rc/markdown.vim
+autocmd BufNewFile,BufRead *.html,*.xhtml  source $HOME/.config/nvim/rc/html.vim
 
 
 " ============================================================
