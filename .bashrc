@@ -72,5 +72,8 @@ export SCM_CHECK=true
 # Load Bash It
 source $BASH_IT/bash_it.sh
 
-# python stuff
+################################################################################
+# custom stuff
+################################################################################
+set -o emacs
 export PYTHONPATH='.'
