@@ -47,7 +47,6 @@ if [ $1 -ne "--no-admin" ]; then
 		#other
 		sudo apt-get -y install git curl tmux nodejs cmake fonts-powerline nvim vim
 
-
 		# dependencies for iperl
 		sudo apt-get install libzmq3-dev libmagic-dev
 		# debian specific stuff
@@ -115,7 +114,7 @@ mkdir -p $HOME/.local/share/nvim/backup
 #wget http://www.vim.org/scripts/download_script.php?src_id=13400 -O $HOME/.config/nvim/colors/wombat256mod.vim
 
 # nvim python
-pip2 install --user --upgrade neovim
+# pip2 install --user --upgrade neovim
 pip3 install --user --upgrade neovim
 
 # install plugins
@@ -176,6 +175,19 @@ else; then
 	cd $my_dir
 fi;
 ########################################
+# npm packages
+########################################
+# ubuntu and debian has node named nodejs, which makes some package fail as the
+# node binary name is hardcoded
+if which node; then; else
+	ln -s `which nodejs` $HOME/.local/bin/node
+fi
+
+npm install -g gnomon
+npm install -g markdown-pdf
+if [ $OS = "Darwin" ]; then
+	iterm2-tab-set
+fi;
 
 # Other
 ########################################
