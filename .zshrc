@@ -91,6 +91,6 @@ setopt rm_star_silent
 export DISABLE_AUTO_TITLE="true" 
 
 # if you do not have admin rights, then change defaults to local install
-if groups | egrep "admin|sudo"; then
+if groups | egrep "admin|sudo" > /dev/null; then; else
 	source $HOME/.config/zsh/no_admin.zsh
 fi

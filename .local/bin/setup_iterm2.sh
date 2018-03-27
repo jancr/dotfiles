@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
+
+# terminal agnostic version of tabset --title localhost
+#echo -ne "\033]0;localhost\007"
 tabset --title localhost
+# I do not know of a terminal agnostic equivalent of --color :(
+tabset --color gray
 
 # kinit if nessesary
 kticket=`klist | grep Issued -A 1000 | grep  INTOMICS | grep -v Expired`
@@ -11,12 +16,14 @@ fi
 osascript -e 'tell application "iTerm" to activate' 
 osascript -e 'tell application "System Events" to tell process "iTerm" to keystroke "t" using command down'  
 osascript -e 'tell application "System Events" to tell process "iTerm" to keystroke "tabset --title hydra"' -e 'tell application "System Events" to tell process "iTerm" to key code 52'
+osascript -e 'tell application "System Events" to tell process "iTerm" to keystroke "tabset --color green"' -e 'tell application "System Events" to tell process "iTerm" to key code 52'
 osascript -e 'tell application "System Events" to tell process "iTerm" to keystroke "ssh -Y hydra"' -e 'tell application "System Events" to tell process "iTerm" to key code 52'
 osascript -e 'tell application "System Events" to tell process "iTerm" to keystroke "tmux attach"' -e 'tell application "System Events" to tell process "iTerm" to key code 52'
 
 osascript -e 'tell application "iTerm" to activate' 
 osascript -e 'tell application "System Events" to tell process "iTerm" to keystroke "t" using command down' -e 'tell application "System Events" to tell process "iTerm" to key code 52'
 osascript -e 'tell application "System Events" to tell process "iTerm" to keystroke "tabset --title other"' -e 'tell application "System Events" to tell process "iTerm" to key code 52'
+osascript -e 'tell application "System Events" to tell process "iTerm" to keystroke "tabset --color yellow"' -e 'tell application "System Events" to tell process "iTerm" to key code 52'
 
 osascript -e 'tell application "iTerm" to activate' 
 osascript -e 'tell application "System Events" to keystroke "1" using command down' 

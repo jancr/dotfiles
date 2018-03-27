@@ -19,24 +19,33 @@
 " endfunction
 
 
-" ===== Awesome line number magic =====
+" ===== Awesome line number magic BEGIN =====
 " silent! suppresses error messages from before vim 7.3
 nnoremap <Leader>l :call NumberToggle()<cr>
 function! NumberToggle()
     if(&relativenumber == 1)
-		silent! set nonumber
-		silent! set norelativenumber
+		call NumberLineDisable()
     else
-		silent! set number
-		silent! set relativenumber
+		call NumberLineEnable()
     endif
 endfunction
-autocmd FocusLost * silent! set norelativenumber
-autocmd FocusGained * silent! set relativenumber
 
-autocmd InsertEnter * silent! set norelativenumber
-autocmd InsertLeave * silent! set relativenumber
-silent! set number
-silent! set relativenumber
+function! NumberLineDisable()
+	silent! set nonumber
+	silent! set norelativenumber
+endfunction
+
+function! NumberLineEnable()
+	silent! set number
+	silent! set relativenumber
+endfunction
+
+call NumberLineEnable()
+autocmd FocusLost,InsertEnter * silent! call NumberLineDisable()
+autocmd FocusGained,InsertLeave * silent! if mode() != 'c' | call NumberLineEnable() | endif
+autocmd TermOpen * silent! call NumberLineDisable()
+
+" ===== Awesome line number magic END =====
+"
 " ============================================================
 

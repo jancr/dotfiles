@@ -35,6 +35,7 @@ call plug#end()
 
 let  mapleader = ','
 filetype plugin indent on    " required
+
 " ============================================================
 " file type specific vim config
 " ============================================================
@@ -59,6 +60,12 @@ set spellfile=~/.local/share/nvim/site/spell/en.utf-8.add
 command! -bar SpellEn set spelllang=en spellfile=$HOME/.local/share/nvim/site/spell/en.utf-8.add
 command! -bar SpellDa set spelllang=da spellfile=$HOME/.local/share/nvim/site/spell/da.utf-8.add
 
+" ============================================================
+" define variables (let clause)
+" ============================================================
+let npm_root = systemlist("npm root -g")[0]
+
+" ============================================================
 " ALL hotkeys
 " ============================================================
 source $HOME/.config/nvim/rc/map.vim

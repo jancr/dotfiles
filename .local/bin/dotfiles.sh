@@ -108,6 +108,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 mkdir -p $HOME/.config/nvim/colors
+mkdir -p $HOME/.config/nvim/sourceforge
 mkdir -p $HOME/.local/share/nvim/swap
 mkdir -p $HOME/.local/share/nvim/undo
 mkdir -p $HOME/.local/share/nvim/backup
@@ -118,7 +119,7 @@ mkdir -p $HOME/.local/share/nvim/backup
 pip3 install --user --upgrade neovim
 
 # install plugins
-nvim +PlugInstall +qall
+nvim --headless +PlugInstall +qall
 
 # compile tab completion
 cd $HOME/.config/nvim/plugged/YouCompleteMe
@@ -185,6 +186,7 @@ fi
 
 npm install -g gnomon
 npm install -g markdown-pdf
+# npm install -g shellbridge
 if [ $OS = "Darwin" ]; then
 	iterm2-tab-set
 fi;
