@@ -49,7 +49,6 @@ else
 fi
 
 # source sub configs
-[ -f $HOME/.config/zsh/extra.zsh ] && source $HOME/.config/zsh/extra.zsh
 [ -f $HOME/.local/qfc/bin/qfc.sh ] && source $HOME/.local/qfc/bin/qfc.sh
 source $HOME/.config/zsh/aliases.zsh
 source $HOME/.config/zsh/vim.zsh
@@ -94,3 +93,6 @@ export DISABLE_AUTO_TITLE="true"
 if groups | egrep "admin|sudo" > /dev/null; then; else
 	source $HOME/.config/zsh/no_admin.zsh
 fi
+
+# source local server settings last so it can overwrite defaults
+[ -f $HOME/.config/zsh/extra.zsh ] && source $HOME/.config/zsh/extra.zsh

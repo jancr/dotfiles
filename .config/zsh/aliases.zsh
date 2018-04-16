@@ -25,7 +25,9 @@ if [ $OS = "Darwin" ]; then
 	# compdef word='open'
 	# compdef powerpoint='open'
 elif [ $OS = "Linux" ]; then
-	alias node="nodejs"
+	if [ $+commands[nodejs] ]; then
+		alias node="nodejs"
+	fi;
 	alias c="xclip -selection clipboard"
 	alias v="xclip -selection clipboard -o"
 fi

@@ -4,7 +4,7 @@ command_exists () {
 }
 
 OS=`uname -s`
-export PATH="$HOME/bin:$PATH:$HOME/.local/bin"
+export PATH="$HOME/.local/bin:$PATH:"
 [ -f $HOME/.config/bash_extra.sh ] && source $HOME/.config/bash_extra.sh
 [ -f $HOME/.local/qfc/bin/qfc.sh ] && source $HOME/.local/qfc/bin/qfc.sh
 
