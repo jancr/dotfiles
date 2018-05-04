@@ -1,6 +1,5 @@
-
 # Aliases and mappings
-if [ $+commands[nvim] ]; then
+if [[ -a "$(which nvim 2> /dev/null)" ]]; then
 	export EDITOR=`which nvim`
 	alias vim='nvim';
 else
@@ -21,15 +20,14 @@ if [ $OS = "Darwin" ]; then
 	alias powerpoint='/Applications/Microsoft PowerPoint.app'
 	export PATH="$PATH:/$HOME/Library/Python/2.7/bin"
 	export PATH="$PATH:/$HOME/Library/Python/3.6/bin"
-	# compdef excel='open'
-	# compdef word='open'
-	# compdef powerpoint='open'
 elif [ $OS = "Linux" ]; then
-	if [ $+commands[nodejs] ]; then
+	if [[ -a "$(which nodejs 2> /dev/null)" ]]; then
 		alias node="nodejs"
 	fi;
-	alias c="xclip -selection clipboard"
-	alias v="xclip -selection clipboard -o"
+	if [[ -a "$(which xclip 2> /dev/null)" ]]; then
+		alias c="xclip -selection clipboard"
+		alias v="xclip -selection clipboard -o"
+	fi;
 fi
 
 # function aliases
