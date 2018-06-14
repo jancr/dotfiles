@@ -14,11 +14,11 @@ call plug#begin()
 	" General:
 	Plug 'Valloric/YouCompleteMe'
 	Plug 'scrooloose/nerdcommenter'
-	"Plug 'vim-perl/vim-perl'
 	"Plug 'freeo/vim-kalisi'
 	Plug 'tpope/vim-surround'
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
+
 	" Git:
 	Plug 'tpope/vim-fugitive'
 
@@ -30,7 +30,10 @@ call plug#begin()
 	Plug 'plasticboy/vim-markdown'
 
 	" Python:
-	Plug 'https://github.com/tweekmonster/impsort.vim'
+	" Plug 'https://github.com/tweekmonster/impsort.vim'
+
+	" Latex:
+	Plug 'lervag/vimtex'
 call plug#end()
 
 let  mapleader = ','
@@ -41,6 +44,7 @@ filetype plugin indent on    " required
 " ============================================================
 " programming languages
 autocmd BufNewFile,BufRead Snakefile,*.py,*.ipy  source $HOME/.config/nvim/rc/python.vim
+autocmd BufNewFile,BufRead *.js  source $HOME/.config/nvim/rc/java_script.vim
 autocmd BufNewFile,BufRead *.cs source $HOME/.config/nvim/rc/cs.vim
 autocmd BufNewFile,BufRead *.c,*.cpp  source $HOME/.config/nvim/rc/c.vim
 "autocmd BufNewFile,BufRead *.cpp  source $HOME/.config/nvim/rc/c.vim
