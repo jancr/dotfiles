@@ -60,9 +60,7 @@ autocmd BufNewFile,BufRead *.html,*.xhtml  source $HOME/.config/nvim/rc/html.vim
 set backupdir=~/.local/share/nvim/backup/
 set directory=~/.local/share/nvim/swap/
 set undodir=~/.local/share/nvim/undo/
-set spellfile=~/.local/share/nvim/site/spell/en.utf-8.add
-command! -bar SpellEn set spelllang=en spellfile=$HOME/.local/share/nvim/site/spell/en.utf-8.add
-command! -bar SpellDa set spelllang=da spellfile=$HOME/.local/share/nvim/site/spell/da.utf-8.add
+source $HOME/.config/nvim/rc/spell.vim
 
 " ============================================================
 " define variables (let clause)
