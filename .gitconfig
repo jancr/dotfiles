@@ -1,0 +1,10 @@
+# This is Git's per-user configuration file.
+[user]
+	name = jcr
+	email = jcr@intomics.com
+[core]
+	excludesfile = /Users/jcr/.config/.gitignore_global
+	eol = native
+	autocrlf = input
+[push]
+	default = matching

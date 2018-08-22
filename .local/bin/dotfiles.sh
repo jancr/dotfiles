@@ -28,6 +28,10 @@ if [ $1 -ne "--no-admin" ]; then
 		brew install gnu-which --with-default-names
 		brew install grep --with-default-names
 		brew install wdiff --with-gettext
+
+		# other
+		brew install jq
+
 		# OSX specific stuff
 		wget https://www.iterm2.com/utilities/imgcat -P ~/.local/bin
 		chmod +x ~/.local/bin/imgcat
@@ -45,7 +49,7 @@ if [ $1 -ne "--no-admin" ]; then
 		sudo apt-get -y install python3-ipython python3-pip ipython-notebook
 
 		#other
-		sudo apt-get -y install git curl tmux nodejs cmake fonts-powerline nvim vim
+		sudo apt-get -y install git curl tmux nodejs cmake fonts-powerline nvim vim jq
 
 		# dependencies for iperl
 		sudo apt-get install libzmq3-dev libmagic-dev
