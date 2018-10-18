@@ -7,6 +7,7 @@ set shiftwidth=4
 set shiftround
 set expandtab
 set syntax=python
+set textwidth=100
 setf python
 
 " allows ctrl+R + i to dump an ipdb trace
