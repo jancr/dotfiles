@@ -171,6 +171,17 @@ set smartcase
 
 " makes / and ? case insensitive
 set ic
+
+
+"============================================================================
+" insert/remove blank lines in normal mode
+"============================================================================
+" Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
+nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
+nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+
 "============================================================================
 " Source custom plugin settings
 "============================================================================
@@ -180,6 +191,17 @@ source $HOME/.config/nvim/rc/plugins.vim
 " Source user defined functions
 "============================================================================
 source $HOME/.config/nvim/rc/functions.vim
+
+"============================================================================
+" Source user defined functions
+"============================================================================
+if has('macunix')
+	source $HOME/.config/nvim/rc/macos.vim
+endif
+
+if has('macunix')
+	source $HOME/.config/nvim/rc/unix.vim
+endif
 
 "============================================================================
 " Hacks (change stuff at the to overwrite plugin behavior
