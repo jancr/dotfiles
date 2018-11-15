@@ -6,8 +6,8 @@ my_dir=`pwd`
 ########################################
 # OS specific dependencies
 ########################################
-if [ $1 -ne "--no-admin" ]; then
-	if [ $OS = "Darwin" ]; then
+if [[ "$1" != "--no-admin" ]]; then
+	if [[ "$OS" == "Darwin" ]]; then
 		#install OSX dependencies
 		brew install git curl tmux node cmake
 
@@ -35,7 +35,7 @@ if [ $1 -ne "--no-admin" ]; then
 		# OSX specific stuff
 		wget https://www.iterm2.com/utilities/imgcat -P ~/.local/bin
 		chmod +x ~/.local/bin/imgcat
-	elif [ $OS = "Linux" ]; then
+	elif [[ "$OS" == "Linux" ]]; then
 
 		# asumes debian/ubuntu
 		# install debian dependencies
@@ -48,22 +48,33 @@ if [ $1 -ne "--no-admin" ]; then
 		# python 3
 		sudo apt-get -y install python3-ipython python3-pip ipython-notebook
 
+		# java script
+		sudo apt-get -y install jq nodejs npm
+
 		#other
-		sudo apt-get -y install git curl tmux nodejs cmake fonts-powerline nvim vim jq
+		sudo apt-get -y install git curl tmux nodejs cmake fonts-powerline nvim vim 
 
 		# dependencies for iperl
 		sudo apt-get install libzmq3-dev libmagic-dev
+		sudo apt install libapp-repl-perl
+
 		# debian specific stuff
 	#else
 		# cygwin
-	fi;
-fi;
+	fi
+fi
 
+
+########################################
+# Upgrade pip
+########################################
+pip install --upgrade pip
+pip3 install --upgrade pip
 
 ########################################
 # powerline (tmux and zsh dependency)
 ########################################
-if [ $OS = "Linux"]; then
+if [[ $OS == "Linux" ]]; then
 	sudo apt-get -y install powerline
 fi
 pip install --user powerline-status
@@ -98,9 +109,9 @@ bash-it enable plugin autojump base battery browser dirs edit-mode-vi extract gi
 # bash-it completions
 bash-it enable completion bash-it bundler conda defaults dirs django docker gem git makefile npm pip pip3 rake ssh tmux todo virtualbox
 
-if [ $OS = "Linux" ]; then
+if [[ $OS == "Linux" ]]; then
 	bash-it enable alias apt 
-elif [ $OS = "Darwin" ]; then
+elif [[ $OS == "Darwin" ]]; then
 	bash-it search osx brew --enable
 fi
 
@@ -163,16 +174,17 @@ jt -t onedork-f roboto -fs 12 -cellw 90%
 
 ####################
 # iperl
-git clone https://github.com/EntropyOrg/p5-Devel-IPerl.git $HOME/.local/p5-iperl
-ln -s $HOME/local/p5-iperl/bin/iperl $HOME/.local/bin/iperl
-
+if [[ "$OS" != "Linix" ]]; then
+	git clone https://github.com/EntropyOrg/p5-Devel-IPerl.git $HOME/.local/p5-iperl
+	ln -s $HOME/local/p5-iperl/bin/iperl $HOME/.local/bin/iperl
+fi
 
 ########################################
 # fpp
 ########################################
-if [ $OS = "Darwin" ]; then
+if [[ $OS == "Darwin" ]]; then
 	brew install fpp
-else; then
+else
 	cd $HOME/.local/
 	git clone https://github.com/facebook/PathPicker.git
 	cd PathPicker/
@@ -192,7 +204,7 @@ npm install -g gnomon
 npm install -g markdown-pdf
 npm install -g yarn
 # npm install -g shellbridge
-if [ $OS = "Darwin" ]; then
+if [[ $OS == "Darwin" ]]; then
 	iterm2-tab-set
 fi;
 

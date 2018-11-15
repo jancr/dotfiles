@@ -38,6 +38,10 @@ antigen apply
 # Enables terminal application mode and updates editor information.
 zle -N zle-line-init
 
+# this is set such that z works on windows linux subsystem
+setopt nobgnice
+
+
 ################################################################################
 # mangle PATHS
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
