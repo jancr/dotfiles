@@ -20,7 +20,7 @@ source ~/.local/bin/antigen.zsh
 antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle vi-mode
+# antigen bundle vi-mode
 antigen bundle pip
 antigen bundle command-not-found
 antigen bundle autojump
