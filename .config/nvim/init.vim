@@ -3,7 +3,7 @@ set encoding=utf-8
 
 " ============================= vim-plug  ==============================
 call plug#begin()
-" On-demand loading
+	" On-demand loading
 	Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 	if !has('nvim')
 		Plug 'tpope/vim-sensible'
@@ -12,12 +12,17 @@ call plug#begin()
 	endif
 
 	" General:
-	Plug 'Valloric/YouCompleteMe'
 	Plug 'scrooloose/nerdcommenter'
 	"Plug 'freeo/vim-kalisi'
 	Plug 'tpope/vim-surround'
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
+
+	" Tab Completion:
+	" Plug 'ervandew/supertab'
+	Plug 'Valloric/YouCompleteMe'
+    Plug 'SirVer/ultisnips'
+
 
 	" Git:
 	Plug 'tpope/vim-fugitive'
@@ -38,6 +43,33 @@ call plug#end()
 
 let  mapleader = ','
 filetype plugin indent on    " required
+
+
+" ============================================================
+" Fix Tab completion
+"  - both YouCompleteMe and UltiSnips use the tab key
+"    make them play nice togeter
+" ============================================================
+" YouCompleteMe
+" let g:ycm_key_list_previous_completion=['<Up>']
+
+"" Ultisnips
+" let g:UltiSnipsExpandTrigger="<c-tab>"
+" let g:UltiSnipsListSnippets="<c-s-tab>"'
+
+" " make YCM compatible with UltiSnips (using supertab)
+" let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+" let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+" let g:SuperTabDefaultCompletionType = '<C-n>'
+" 
+" " better key bindings for UltiSnipsExpandTrigger
+" let g:UltiSnipsExpandTrigger = "<tab>"
+" let g:UltiSnipsJumpForwardTrigger = "<tab>"
+" let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+ 
+" let g:UltiSnipsExpandTrigger = "<tab>"
+
+let g:UltiSnipsSnippetDirectories=["UltiSnips", $HOME.'/.config/nvim/plugged/vim-snippets/Ultisnips', $HOME.'/.config/nvim/plugged/vim-snippets/']
 
 " ============================================================
 " file type specific vim config
@@ -91,6 +123,19 @@ set history=5000
 syntax enable
 filetype plugin indent on
 " ============================================================
+
+" ============================================================
+" Dont wrap lines
+" ============================================================"
+"set nowrap
+"set nolinebreak
+"set nolist  " list disables linebreak
+set wrap
+set linebreak
+set nolist  " list disables linebreak
+set textwidth=0
+set wrapmargin=0
+
 
 " ============================================================
 " Dont wrap lines
@@ -194,19 +239,6 @@ source $HOME/.config/nvim/rc/functions.vim
 
 "============================================================================
 " Source user defined functions
-"============================================================================
-if has('macunix')
-	source $HOME/.config/nvim/rc/macos.vim
-endif
-
-if has('macunix')
-	source $HOME/.config/nvim/rc/unix.vim
-endif
-
-"============================================================================
-" Hacks (change stuff at the to overwrite plugin behavior
-"============================================================================
-" make background the terminals color:
 hi Normal             ctermfg=252             ctermbg=none            cterm=none              guifg=#e3e0d7   guibg=NONE     gui=none
 
 

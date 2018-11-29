@@ -1,6 +1,6 @@
 
 " tab stuff
-"============================================================================
+"===============================================================================
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -19,4 +19,21 @@ if !filereadable(expand(fn_path))
 endif
 
 exec "source " . expand(fn_path)
+
+
+"===============================================================================
+" YCM jedi hotkeys
+"===============================================================================
+" close the window __doc__ window when you have choosen a completion
+let g:ycm_autoclose_preview_window_after_completion=1
+" 
+nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" show call signatures in the button of the screen
+" set g:jedi#show_call_signatures=2
+
+
+"===============================================================================
+" Python UltiSnippets
+"===============================================================================
+" UltiSnipsAddFileTypes python
 

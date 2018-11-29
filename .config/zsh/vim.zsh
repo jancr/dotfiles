@@ -25,6 +25,7 @@ export KEYTIMEOUT=1 # wait 0.1 sek after escape is clicked for input (default 0.
 # export BULLETTRAIN_CUSTOM_BG='yellow'
 # export BULLETTRAIN_CUSTOM_FG='black'
 # export BULLETTRAIN_CUSTOM_MSG='$(vi_mode_prompt)'
+export BULLETTRAIN_CUSTOM_MSG=''
 
 ################################################################################
 # functions
