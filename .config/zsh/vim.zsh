@@ -9,18 +9,18 @@ export KEYTIMEOUT=1 # wait 0.1 sek after escape is clicked for input (default 0.
 
 # undo the things from vi-mode.plugin.zsh that does not work with bullet train
 # export RPS1=""
-# function vi_mode_prompt() {
-	# # echo "${${KEYMAP/vicmd/NORMAL}/(main|viins)/INSERT}"
-	# case $KEYMAP in
-		# vicmd) 
-			# # export BULLETTRAIN_CUSTOM_BG='black'
-			# echo "NORMAL";;
-		# viins|main)
-			# # export BULLETTRAIN_CUSTOM_BG='yellow'
-			# echo "INSERT";;
-	# esac
-	# echo "${${KEYMAP/vicmd/$VI_MODE}/(main|viins)/}"
-# }
+function vi_mode_prompt() {
+	# echo "${${KEYMAP/vicmd/NORMAL}/(main|viins)/INSERT}"
+	case $KEYMAP in
+		vicmd) 
+			# export BULLETTRAIN_CUSTOM_BG='black'
+			echo "NORMAL";;
+		viins|main)
+			# export BULLETTRAIN_CUSTOM_BG='yellow'
+			echo "INSERT";;
+	esac
+	echo "${${KEYMAP/vicmd/$VI_MODE}/(main|viins)/}"
+}
 
 # export BULLETTRAIN_CUSTOM_BG='yellow'
 # export BULLETTRAIN_CUSTOM_FG='black'
