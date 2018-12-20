@@ -71,6 +71,7 @@ fi
 pip install --upgrade pip
 pip3 install --upgrade pip
 
+pip3 install thefuck
 ########################################
 # powerline (tmux and zsh dependency)
 ########################################

@@ -21,6 +21,7 @@ antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 # antigen bundle vi-mode
+# antigen bundle thefuck
 antigen bundle pip
 antigen bundle command-not-found
 antigen bundle autojump
@@ -34,6 +35,7 @@ antigen bundle pyenv
 antigen bundle pip
 antigen bundle yarn
 antigen bundle cargo
+
 if [[ $OS == "Darwin" ]]; then
 	antigen bundle osx
 	antigen bundle iterm2
@@ -54,7 +56,12 @@ zle -N zle-line-init
 setopt nobgnice
 
 
+# add python scripts to path
+if [[ $OS == "Darwin" ]]; then
+	export PATH="$PATH:$HOME/Library/Python/3.7/bin"
+fi
 ################################################################################
+eval $(thefuck --alias fix)
 # mangle PATHS
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 # look for python stuff in the local directory
@@ -112,3 +119,4 @@ fi
 
 # source local server settings last so it can overwrite defaults
 [ -f $HOME/.config/zsh/extra.zsh ] && source $HOME/.config/zsh/extra.zsh
+
