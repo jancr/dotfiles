@@ -1,6 +1,9 @@
 
-set encoding=utf-8
+set encoding=utf-8  " The encoding displayed.
+set fileencoding=utf-8  " The encoding written to file.
 
+let g:python2_host_prog = '/usr/local/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
 " ============================= vim-plug  ==============================
 call plug#begin()
 	" On-demand loading
@@ -22,7 +25,7 @@ call plug#begin()
 	" Plug 'ervandew/supertab'
 	Plug 'Valloric/YouCompleteMe'
     Plug 'SirVer/ultisnips'
-
+	Plug 'honza/vim-snippets'
 
 	" Git:
 	Plug 'tpope/vim-fugitive'
@@ -44,32 +47,17 @@ call plug#end()
 let  mapleader = ','
 filetype plugin indent on    " required
 
-
 " ============================================================
 " Fix Tab completion
 "  - both YouCompleteMe and UltiSnips use the tab key
 "    make them play nice togeter
 " ============================================================
-" YouCompleteMe
-" let g:ycm_key_list_previous_completion=['<Up>']
-
-"" Ultisnips
-" let g:UltiSnipsExpandTrigger="<c-tab>"
-" let g:UltiSnipsListSnippets="<c-s-tab>"'
-
-" " make YCM compatible with UltiSnips (using supertab)
-" let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-" let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-" let g:SuperTabDefaultCompletionType = '<C-n>'
-" 
-" " better key bindings for UltiSnipsExpandTrigger
-" let g:UltiSnipsExpandTrigger = "<tab>"
-" let g:UltiSnipsJumpForwardTrigger = "<tab>"
-" let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
- 
-" let g:UltiSnipsExpandTrigger = "<tab>"
-
-let g:UltiSnipsSnippetDirectories=["UltiSnips", $HOME.'/.config/nvim/plugged/vim-snippets/Ultisnips', $HOME.'/.config/nvim/plugged/vim-snippets/']
+" let g:UltiSnipsSnippetDirectories=["UltiSnips", $HOME.'/.config/nvim/plugged/vim-snippets/Ultisnips', $HOME.'/.config/nvim/plugged/vim-snippets/']
+" makes ctrl + j complete snippets
+let g:UltiSnipsExpandTrigger="<c-j>"
+" uncomment if you want snippet and code completion to have different keys
+" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " ============================================================
 " file type specific vim config
@@ -79,7 +67,6 @@ autocmd BufNewFile,BufRead Snakefile,*.py,*.ipy  source $HOME/.config/nvim/rc/py
 autocmd BufNewFile,BufRead *.js  source $HOME/.config/nvim/rc/java_script.vim
 autocmd BufNewFile,BufRead *.cs source $HOME/.config/nvim/rc/cs.vim
 autocmd BufNewFile,BufRead *.c,*.cpp  source $HOME/.config/nvim/rc/c.vim
-"autocmd BufNewFile,BufRead *.cpp  source $HOME/.config/nvim/rc/c.vim
 " Other
 autocmd BufNewFile,BufRead *.tex source $HOME/.config/nvim/rc/latex.vim
 autocmd BufNewFile,BufRead *.md  source $HOME/.config/nvim/rc/markdown.vim
