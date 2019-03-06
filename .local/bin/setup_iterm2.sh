@@ -12,6 +12,9 @@ if [[ -z $kticket ]]; then
 	kinit jcr@INTOMICS.COM
 fi
 
+# connect ipython to hydra
+ssh -N -L 8888:localhost:8888 jcr@hydra &
+
 
 osascript -e 'tell application "iTerm" to activate' 
 osascript -e 'tell application "System Events" to tell process "iTerm" to keystroke "t" using command down'  
