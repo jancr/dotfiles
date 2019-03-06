@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 OS=`uname -s`
-
 mkdir -p $HOME/.config
 
 # Install dependencies using apt/brew
@@ -16,4 +15,4 @@ bash $HOME/.local/bin/install/bash.sh
 bash $HOME/.local/bin/install/zsh.sh
 bash $HOME/.local/bin/install/neovim.sh
 bash $HOME/.local/bin/install/jupyter.sh
-
+z
