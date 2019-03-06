@@ -41,26 +41,27 @@ if [[ "$1" != "--no-admin" ]]; then
 		# install debian dependencies
 
 		# dependencies
-		sudo apt-get update
+		sudo apt update
 		# python 2
-		sudo apt-get -y install python-ipython python-pip ipython-notebook
+		sudo apt -y install python-ipython python-pip ipython-notebook
 
 		# python 3
-		sudo apt-get -y install python3-ipython python3-pip ipython-notebook
+		sudo apt -y install python3-ipython python3-pip ipython-notebook
 
 		# java script
-		sudo apt-get -y install jq nodejs npm
+		sudo apt -y install jq nodejs npm
 
 		#other
-		sudo apt-get -y install git curl tmux nodejs cmake fonts-powerline nvim vim 
+		sudo apt -y install git curl tmux nodejs cmake fonts-powerline nvim vim 
 
 		# dependencies for iperl
-		sudo apt-get install libzmq3-dev libmagic-dev
-		sudo apt install libapp-repl-perl
+		sudo apt -y install libzmq3-dev libmagic-dev
+		sudo apt -y install libapp-repl-perl
+
+		# other
+		sudo apt -y install neovim htop
 
 		# debian specific stuff
-	#else
-		# cygwin
 	fi
 fi
 
@@ -197,7 +198,9 @@ fi;
 ########################################
 # ubuntu and debian has node named nodejs, which makes some package fail as the
 # node binary name is hardcoded
-if which node; then; else
+if which node; then
+	# to dumb to do if not :D
+else
 	ln -s `which nodejs` $HOME/.local/bin/node
 fi
 
