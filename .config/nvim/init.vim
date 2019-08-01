@@ -20,6 +20,7 @@ call plug#begin()
 	Plug 'tpope/vim-surround'
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
+	Plug 'vim-syntastic/syntastic'
 
 	" Tab Completion:
 	" Plug 'ervandew/supertab'
