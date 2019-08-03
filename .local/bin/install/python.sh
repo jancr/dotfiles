@@ -1,10 +1,22 @@
+
+
+########################################
+# scientific packages
+########################################
+pip3 install numpy matplotlib scipy pandas seaborn sklearn
+
+########################################
+# other
+########################################
+pip3 install pytest thefuck
+
+
 ########################################
 # Upgrade pip
 ########################################
-pip install --upgrade pip
-pip3 install --upgrade pip
+#pip install --upgrade pip
+#pip3 install --upgrade pip
 
-pip3 install thefuck
 
 ########################################
 # powerline (tmux and zsh dependency)

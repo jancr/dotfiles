@@ -2,8 +2,10 @@ my_dir=`pwd`
 ########################################
 # jupyter (ipython and iperl)
 ########################################
+pip3 install jupyter
+
 pip3 install jupyter_contrib_nbextensions
-pip3 install --upgrade jupyterthemes
+pip3 install install jupyterthemes
 
 # install vim bindings
 mkdir -p $(jupyter --data-dir)/nbextensions
@@ -18,5 +20,5 @@ cd $my_dir
 
 # enable dark theme # and 100 cell width
 jupyter nbextension enable vim_binding/vim_binding
-jt -t onedork-f roboto -fs 12 -cellw 90%
+jt -t onedork -f roboto -fs 12 -cellw 90%
 
