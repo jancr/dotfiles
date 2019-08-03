@@ -37,3 +37,9 @@ nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "===============================================================================
 " UltiSnipsAddFileTypes python
 
+"===============================================================================
+" Python Syntastic
+"===============================================================================
+let g:syntastic_python_checkers=['flake8']
+
+

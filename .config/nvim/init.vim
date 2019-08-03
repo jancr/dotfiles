@@ -2,50 +2,70 @@
 set encoding=utf-8  " The encoding displayed.
 set fileencoding=utf-8  " The encoding written to file.
 
-"let g:python2_host_prog = '/usr/local/bin/python'
-"let g:python3_host_prog = '/usr/local/bin/python3'
+" let g:python2_host_prog = '/usr/local/bin/python'
+" let g:python3_host_prog = '/usr/local/bin/python3'
 " ============================= vim-plug  ==============================
 call plug#begin()
-	" On-demand loading
-	Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-	if !has('nvim')
-		Plug 'tpope/vim-sensible'
-	else
-		set termguicolors
-	endif
+    " On-demand loading
+    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+    if !has('nvim')
+        Plug 'tpope/vim-sensible'
+    else
+        set termguicolors
+    endif
 
-	" General:
-	Plug 'scrooloose/nerdcommenter'
-	"Plug 'freeo/vim-kalisi'
-	Plug 'tpope/vim-surround'
-	Plug 'vim-airline/vim-airline'
-	Plug 'vim-airline/vim-airline-themes'
+    " General:
+    Plug 'scrooloose/nerdcommenter'
+    "Plug 'freeo/vim-kalisi'
+    Plug 'tpope/vim-surround'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
 
-	" Tab Completion:
-	" Plug 'ervandew/supertab'
-	Plug 'Valloric/YouCompleteMe'
+    " Syntax:
+    Plug 'vim-syntastic/syntastic'
+
+    " Tab Completion:
+    " Plug 'ervandew/supertab'
+    Plug 'Valloric/YouCompleteMe'
     Plug 'SirVer/ultisnips'
-	Plug 'honza/vim-snippets'
+    Plug 'honza/vim-snippets'
 
-	" Git:
-	Plug 'tpope/vim-fugitive'
+    " Git:
+    Plug 'tpope/vim-fugitive'
 
-	" Color:
-	Plug 'dracula/vim'
+    " Color:
+    Plug 'dracula/vim'
 
-	" Markdown:
-	Plug 'godlygeek/tabular'
-	Plug 'plasticboy/vim-markdown'
+    " Markdown:
+    Plug 'godlygeek/tabular'
+    Plug 'plasticboy/vim-markdown'
 
-	" Python:
-	" Plug 'https://github.com/tweekmonster/impsort.vim'
+    " Python:
+    " Plug 'https://github.com/tweekmonster/impsort.vim'
 
-	" Latex:
-	Plug 'lervag/vimtex'
+    " Latex:
+    Plug 'lervag/vimtex'
 call plug#end()
 
 let  mapleader = ','
 filetype plugin indent on    " required
+
+" ============================================================
+" Syntaxtic recomended settings, change when smarter :D
+" ============================================================
+"set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" keybindings for syntastic
+noremap  ]e :lnext<CR>
+noremap  [e :lprevious<CR>
+
+" ============================================================
 
 " ============================================================
 " Fix Tab completion
@@ -168,7 +188,7 @@ set foldlevel=99
 " Undu stuff
 "============================================================================
 if has('persistent_undo')
-	set undofile
+    set undofile
 endif
 
 set undolevels=5000
