@@ -5,11 +5,14 @@
 # dependencies
 sudo apt-get update
 
+# development
+sudo apt-get -y install build-essential libssl-dev libffi-dev 
+
 # python 2
-sudo apt-get -y install python-ipython python-pip ipython-notebook
+sudo apt-get -y install python-dev python-pip
 
 # python 3
-sudo apt-get -y install python3-ipython python3-pip ipython-notebook
+sudo apt-get -y install python3-dev python3-pip jupyter-core
 
 # java script
 sudo apt-get -y install jq nodejs npm
@@ -21,3 +24,8 @@ sudo apt-get -y install git curl tmux nodejs cmake fonts-powerline neovim vim
 sudo apt-get install libzmq3-dev libmagic-dev
 sudo apt install libapp-repl-perl
 
+
+# Graphical stuff
+#sudo apt-get -y install guake
+#sudo apt install gnome-session
+#sudo update-alternatives --config gdm3.css
