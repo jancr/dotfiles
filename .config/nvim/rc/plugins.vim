@@ -40,5 +40,5 @@ class Syntastic:
 		vim.command(cmd)
 EOF
 
-:map ]t :py3 Syntastic.move("lnext")<CR>
-:map [t :py3 Syntastic.move("lprevious")<CR>
+:noremap ]r :py3 Syntastic.move("lnext")<CR>
+:noremap [r :py3 Syntastic.move("lprevious")<CR>
