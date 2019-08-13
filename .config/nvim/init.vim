@@ -143,19 +143,6 @@ set nolist  " list disables linebreak
 set textwidth=0
 set wrapmargin=0
 
-
-" ============================================================
-" Dont wrap lines
-" ============================================================"
-"set nowrap
-"set nolinebreak
-"set nolist  " list disables linebreak
-set wrap
-set linebreak
-set nolist  " list disables linebreak
-set textwidth=0
-set wrapmargin=0
-
 " ============================================================
 " Color scheme and other ‘estetics’
 " ============================================================"
@@ -224,7 +211,6 @@ set smartcase
 " makes / and ? case insensitive
 set ic
 
-
 "============================================================================
 " insert/remove blank lines in normal mode
 "============================================================================
@@ -249,3 +235,8 @@ source $HOME/.config/nvim/rc/functions.vim
 hi Normal             ctermfg=252             ctermbg=none            cterm=none              guifg=#e3e0d7   guibg=NONE     gui=none
 
 
+
+"============================================================================
+" Plugin settings
+"============================================================================
+let g:NERDDefaultAlign = 'left'

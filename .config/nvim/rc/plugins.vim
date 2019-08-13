@@ -15,3 +15,30 @@ let g:NERDCommentEmptyLines = 1
 " if filereadable(shellbridge_rc)
 	" exec 'source' shellbridge_rc
 " endif
+
+"============================================================================
+" Syntastic
+"============================================================================
+" movements
+" :map ]r :lnext<CR>
+" :map [r :lprevious<CR>
+
+:py3 << EOF
+class Syntastic:
+	@classmethod
+	def get_count(cls):
+		count = int(vim.eval('v:count'))
+		if count == 0:
+			count = ""
+		return str(count)
+
+	@classmethod
+	def move(cls, command):
+		count = cls.get_count()
+		cmd = ":{}{}".format(count, command)
+		print(cmd)
+		vim.command(cmd)
+EOF
+
+:map ]t :py3 Syntastic.move("lnext")<CR>
+:map [t :py3 Syntastic.move("lprevious")<CR>
