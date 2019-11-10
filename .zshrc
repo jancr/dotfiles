@@ -120,3 +120,5 @@ fi
 # source local server settings last so it can overwrite defaults
 [ -f $HOME/.config/zsh/extra.zsh ] && source $HOME/.config/zsh/extra.zsh
 
+# force spark to use python3!
+export PYSPARK_PYTHON=python3

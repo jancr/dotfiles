@@ -45,6 +45,10 @@ call plug#begin()
 
     " Latex:
     Plug 'lervag/vimtex'
+
+	" Jupyter
+	Plug 'jupyter-vim/jupyter-vim'
+
 call plug#end()
 
 let  mapleader = ','
