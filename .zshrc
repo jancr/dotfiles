@@ -71,6 +71,16 @@ else
 	export PYTHONPATH=".:$HOME/Projects/python_modules"
 fi
 
+
+################################################################################
+# pyenv
+################################################################################
+# export PYENV_ROOT="$HOME/.local/pyenv"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+export PATH="$PYENV_ROOT//bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 # source sub configs
 [ -f $HOME/.local/qfc/bin/qfc.sh ] && source $HOME/.local/qfc/bin/qfc.sh
 source $HOME/.config/zsh/aliases.zsh
