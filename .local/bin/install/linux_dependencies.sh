@@ -18,7 +18,7 @@ sudo apt-get -y install python3-dev python3-pip jupyter-core
 sudo apt-get -y install jq nodejs npm
 
 #other
-sudo apt-get -y install git curl tmux nodejs cmake fonts-powerline neovim vim 
+sudo apt-get -y install git curl tmux nodejs cmake fonts-powerline neovim vim zsh
 
 # dependencies for iperl
 sudo apt-get install libzmq3-dev libmagic-dev

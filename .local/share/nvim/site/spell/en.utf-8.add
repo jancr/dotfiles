@@ -29,10 +29,8 @@ NOGs
 maNOG
 prNOG
 workflow
-peptidomics
 API
 oxidated
-  the UniprotXML.write_[protein/peptide/peptide_variant]_tsv_[features_comments]\(out_file\) metho
 Intomics
 epub
 XHTML
@@ -95,8 +93,7 @@ pytest
 neoepitopes
 NetMHCpan
 NetMHCIIpan
-LPV
-PPV
-proteome
-peptidome
-Secher
+PTM's
+SNPs
+Glucagon
+GLP

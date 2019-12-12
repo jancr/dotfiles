@@ -25,10 +25,14 @@ call plug#begin()
     Plug 'vim-syntastic/syntastic'
 
     " Tab Completion:
-    " Plug 'ervandew/supertab'
-    Plug 'Valloric/YouCompleteMe'
-    Plug 'SirVer/ultisnips'
-    Plug 'honza/vim-snippets'
+	Plug 'ervandew/supertab'
+	Plug 'Valloric/YouCompleteMe'
+	Plug 'SirVer/ultisnips'
+	Plug 'honza/vim-snippets'
+	" Plug 'prabirshrestha/async.vim'
+	" Plug 'prabirshrestha/vim-lsp'
+	" Plug 'thomasfaingnaert/vim-lsp-snippets'
+	" Plug 'thomasfaingnaert/vim-lsp-ultisnips'
 
     " Git:
     Plug 'tpope/vim-fugitive'
@@ -46,9 +50,8 @@ call plug#begin()
     " Latex:
     Plug 'lervag/vimtex'
 
-	" Jupyter
-	Plug 'jupyter-vim/jupyter-vim'
-
+	" jupyter integration
+	" Plug 'jupyter-vim/jupyter-vim'
 call plug#end()
 
 let  mapleader = ','
@@ -78,7 +81,19 @@ noremap  [e :lprevious<CR>
 " ============================================================
 " let g:UltiSnipsSnippetDirectories=["UltiSnips", $HOME.'/.config/nvim/plugged/vim-snippets/Ultisnips', $HOME.'/.config/nvim/plugged/vim-snippets/']
 " makes ctrl + j complete snippets
-let g:UltiSnipsExpandTrigger="<c-j>"
+" let g:UltiSnipsExpandTrigger="<c-j>"
+
+" from: https://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
 " uncomment if you want snippet and code completion to have different keys
 " let g:UltiSnipsJumpForwardTrigger="<c-j>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-k>"
