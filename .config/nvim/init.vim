@@ -19,7 +19,7 @@ call plug#begin()
     "Plug 'freeo/vim-kalisi'
     Plug 'tpope/vim-surround'
     Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
+	Plug 'vim-airline/vim-airline-themes'
 
     " Syntax:
     Plug 'vim-syntastic/syntastic'
@@ -46,6 +46,8 @@ call plug#begin()
 
     " Python:
     " Plug 'https://github.com/tweekmonster/impsort.vim'
+	" Good plugin, but does to much, so thus it inflicts with code completion and syntastic
+	" Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
     " Latex:
     Plug 'lervag/vimtex'
