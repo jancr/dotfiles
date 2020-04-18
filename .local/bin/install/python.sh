@@ -26,3 +26,5 @@ if [[ $OS == "Linux" ]]; then
 fi
 pip install --user powerline-status
 pip3 install --user powerline-status
+
+curl https://pyenv.run | bash

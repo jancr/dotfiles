@@ -21,8 +21,8 @@ sudo apt-get -y install jq nodejs npm
 sudo apt-get -y install git curl tmux nodejs cmake fonts-powerline neovim vim zsh
 
 # dependencies for iperl
-sudo apt-get install libzmq3-dev libmagic-dev
-sudo apt install libapp-repl-perl
+sudo apt-get -y install libzmq3-dev libmagic-dev
+sudo apt-get -y install libapp-repl-perl
 
 
 # Graphical stuff

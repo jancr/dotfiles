@@ -5,7 +5,7 @@ my_dir=`pwd`
 pip3 install jupyter
 
 pip3 install jupyter_contrib_nbextensions
-pip3 install install jupyterthemes
+pip3 install jupyterthemes
 
 # install vim bindings
 mkdir -p $(jupyter --data-dir)/nbextensions
