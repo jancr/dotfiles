@@ -65,11 +65,11 @@ eval $(thefuck --alias fix)
 # mangle PATHS
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 # look for python stuff in the local directory
-if [ -n "${PYTHONPATH+1}" ]; then
-	export PYTHONPATH="$PYTHONPATH:.:$HOME/Projects/python_modules"  
-else
-	export PYTHONPATH=".:$HOME/Projects/python_modules"
-fi
+# if [ -n "${PYTHONPATH+1}" ]; then
+#     export PYTHONPATH="$PYTHONPATH:.:$HOME/Projects/python_modules"  
+# else
+#     export PYTHONPATH=".:$HOME/Projects/python_modules"
+# fi
 
 
 ################################################################################
@@ -78,7 +78,7 @@ fi
 # export PYENV_ROOT="$HOME/.local/pyenv"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT//bin:$PATH"
+export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 export QT_QPA_PLATFORM='offscreen'

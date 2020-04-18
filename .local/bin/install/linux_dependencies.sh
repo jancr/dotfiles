@@ -9,7 +9,7 @@ sudo apt-get update
 sudo apt-get -y install build-essential libssl-dev libffi-dev 
 
 # python 2
-sudo apt-get -y install python-dev python-pip
+# sudo apt-get -y install python-dev python-pip
 
 # python 3
 sudo apt-get -y install python3-dev python3-pip jupyter-core
@@ -29,3 +29,8 @@ sudo apt install libapp-repl-perl
 #sudo apt-get -y install guake
 #sudo apt install gnome-session
 #sudo update-alternatives --config gdm3.css
+
+curl https://pyenv.run | bash
+git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
+
+
