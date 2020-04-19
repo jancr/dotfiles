@@ -19,7 +19,7 @@ bash-it enable plugin autojump base battery browser dirs edit-mode-vi extract gi
 # bash-it completions
 bash-it enable completion bash-it bundler conda defaults dirs django docker gem git makefile npm pip pip3 rake ssh tmux todo virtualbox
 
-if [[ $OS == "Linux" ]]; then
+f [[ $OS == "Linux" ]]; then
 	bash-it enable alias apt 
 elif [[ $OS == "Darwin" ]]; then
 	bash-it search osx brew --enable

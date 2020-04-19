@@ -65,11 +65,11 @@ eval $(thefuck --alias fix)
 # mangle PATHS
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 # look for python stuff in the local directory
-if [ -n "${PYTHONPATH+1}" ]; then
-	export PYTHONPATH="$PYTHONPATH:.:$HOME/Projects/python_modules"  
-else
-	export PYTHONPATH=".:$HOME/Projects/python_modules"
-fi
+# if [ -n "${PYTHONPATH+1}" ]; then
+#     export PYTHONPATH="$PYTHONPATH:.:$HOME/Projects/python_modules"  
+# else
+#     export PYTHONPATH=".:$HOME/Projects/python_modules"
+# fi
 
 
 ################################################################################
@@ -78,11 +78,26 @@ fi
 # export PYENV_ROOT="$HOME/.local/pyenv"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT//bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+export PATH="$PYENV_ROOT/bin:$PATH"
 export QT_QPA_PLATFORM='offscreen'
 
+# Setup virtualenv home
+export WORKON_HOME=$HOME/.virtualenvs
+mkdir -p $WORKON_HOME
+source /usr/local/bin/virtualenvwrapper.sh
+
+# Tell pyenv-virtualenvwrapper to use pyenv when creating new Python environments
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+
+# Set the pyenv shims to initialize
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+if command -v pyenv 1>/dev/null 2>&1; then
+ eval "$(pyenv init -)"
+fi
+################################################################################
+
+#
 # source sub configs
 [ -f $HOME/.local/qfc/bin/qfc.sh ] && source $HOME/.local/qfc/bin/qfc.sh
 source $HOME/.config/zsh/aliases.zsh

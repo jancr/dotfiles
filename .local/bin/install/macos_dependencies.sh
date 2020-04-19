@@ -20,6 +20,8 @@ brew install gnu-tar --with-default-names
 brew install gnu-which --with-default-names
 brew install grep --with-default-names
 brew install wdiff --with-gettext
+brew install pyenv
+brew install pyenv-virtualenv
 
 # other
 brew install jq
