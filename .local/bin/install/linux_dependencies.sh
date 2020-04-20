@@ -6,11 +6,11 @@
 sudo apt-get update
 
 # development
-sudo apt-get -y install build-essential libssl-dev libffi-dev zlib1g-dev \
-                sqlite bzip2 libreadline6-dev
 
-# python 2
-# sudo apt-get -y install python-dev python-pip
+sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev \
+						libreadline-dev libsqlite3-dev wget llvm libncurses5-dev \
+						libncursesw5-dev libffi-dev liblzma-dev python-openssl git \
+						sqlite libreadline6-dev bzip2 
 
 # python 3
 sudo apt-get -y install python3-dev python3-pip jupyter-core
@@ -20,7 +20,7 @@ sudo apt-get -y install jq nodejs npm
 
 #other
 sudo apt-get -y install git curl tmux nodejs cmake fonts-powerline \ 
-						neovim vim zsh xclip
+						neovim vim zsh xclip npm
 
 # dependencies for iperl
 sudo apt-get -y install libzmq3-dev libmagic-dev

@@ -7,6 +7,7 @@ pyenv global 3.7.5
 # install virtual env and virtualenvwrapper
 git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
 git clone https://github.com/pyenv/pyenv-virtualenvwrapper.git $(pyenv root)/plugins/pyenv-virtualenvwrapper
+pyenv virtualenvwrapper
 
 
 # all of thise packages are installed into the global pyenv
