@@ -10,8 +10,7 @@ sudo apt-get update
 sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev \
 						libreadline-dev libsqlite3-dev wget llvm libncurses5-dev \
 						libncursesw5-dev libffi-dev liblzma-dev python-openssl git \
-						sqlite libreadline6-dev bzip2 
-
+						sqlite libreadline6-dev bzip2 cmake udo libpcre3 libpcre3-dev
 # python 3
 sudo apt-get -y install python3-dev python3-pip jupyter-core
 

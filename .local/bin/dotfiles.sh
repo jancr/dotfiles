@@ -14,12 +14,9 @@ bash $HOME/.local/bin/install/python.sh
 bash $HOME/.local/bin/install/npm.sh
 
 # shells
-bash $HOME/.local/bin/install/bash.sh
 bash $HOME/.local/bin/install/zsh.sh
+bash $HOME/.local/bin/install/bash.sh
 bash $HOME/.local/bin/install/tmux.sh
 
 bash $HOME/.local/bin/install/neovim.sh
-bash $HOME/.local/bin/install/jupyter.sh
 bash $HOME/.local/bin/install/other.sh
-
-z
