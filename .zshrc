@@ -14,39 +14,7 @@ zmodload zsh/zle
 
 # and antibody for the rest
 source ~/.local/bin/antigen.zsh
-#antigen init ~/.zsh/.antogenrc
-
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
-
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-# antigen bundle vi-mode
-# antigen bundle thefuck
-antigen bundle pip
-antigen bundle command-not-found
-antigen bundle autojump
-antigen bundle compleat
-antigen bundle npm
-antigen bundle z
-
-# new copied from Christian Ravn
-antigen bundle git
-antigen bundle pyenv
-antigen bundle pip
-antigen bundle yarn
-antigen bundle cargo
-
-if [[ $OS == "Darwin" ]]; then
-	antigen bundle osx
-	antigen bundle iterm2
-fi
-#antigen bundle fasd
-
-# other repos
-antigen bundle tarruda/zsh-autosuggestions
-antigen bundle zsh-users/zsh-syntax-highlighting 
-antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
-
+source ~/.config/zsh/antigen.zsh
 antigen apply
 
 # Enables terminal application mode and updates editor information.
@@ -55,36 +23,28 @@ zle -N zle-line-init
 # this is set such that z works on windows linux subsystem
 setopt nobgnice
 
-
-# add python scripts to path
-if [[ $OS == "Darwin" ]]; then
-	export PATH="$PATH:$HOME/Library/Python/3.7/bin"
-fi
 ################################################################################
 eval $(thefuck --alias fix)
 # mangle PATHS
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
-# look for python stuff in the local directory
-# if [ -n "${PYTHONPATH+1}" ]; then
-#     export PYTHONPATH="$PYTHONPATH:.:$HOME/Projects/python_modules"  
-# else
-#     export PYTHONPATH=".:$HOME/Projects/python_modules"
-# fi
 
 
 ################################################################################
 # pyenv
 ################################################################################
-# export PYENV_ROOT="$HOME/.local/pyenv"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 export QT_QPA_PLATFORM='offscreen'
 export PYTHON_CONFIGURE_OPTS="--enable-shared"
 eval "$(pyenv init -)"
-pyenv global 3.7.5
-eval "$(pyenv virtualenv-init -)"
-
+if [ -f $HOME/.config/zsh/pyenv.zsh ]; then
+	# modify this script if you do not want 3.7.5 as default
+	source $HOME/.config/zsh/pyenv.zsh 
+else
+	pyenv global 3.7.5
+	eval "$(pyenv virtualenv-init -)"
+fi
 
 # I fail to see the advantage of pyenv-virtualenvwrapper over pyenv-virtualenv
 # so I have commented it out untill I am enlightend
@@ -108,9 +68,7 @@ eval "$(pyenv virtualenv-init -)"
 [ -f $HOME/.local/qfc/bin/qfc.sh ] && source $HOME/.local/qfc/bin/qfc.sh
 source $HOME/.config/zsh/aliases.zsh
 source $HOME/.config/zsh/vim.zsh
-# if [OS == 'Darwin' && -f $HOME/.config/zsh/darwin.zsh]; then
-	# source $HOME/.config/zsh/darwin.zsh
-# fi;
+source $HOME/.config/zsh/utf8.zsh
 
 # History settings
 export HISTFILE=~/.history
@@ -125,17 +83,6 @@ setopt HIST_IGNORE_ALL_DUPS # history is de-duped
 # enable **/file expansion, negation [^ab]*, and more
 setopt EXTENDED_GLOB
 
-################################################################################
-# UTF-8
-################################################################################
-export LANG="en_US.UTF-8"  
-export LC_COLLATE="en_US.UTF-8"  
-export LC_CTYPE="en_US.UTF-8"  
-export LC_MESSAGES="en_US.UTF-8"  
-export LC_MONETARY="en_US.UTF-8"  
-export LC_NUMERIC="en_US.UTF-8"  
-export LC_TIME="en_US.UTF-8"  
-export LC_ALL="en_US.UTF-8"  
 
 ################################################################################
 # no training wheels!
