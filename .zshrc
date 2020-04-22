@@ -81,22 +81,26 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 export QT_QPA_PLATFORM='offscreen'
 export PYTHON_CONFIGURE_OPTS="--enable-shared"
+eval "$(pyenv init -)"
+pyenv global 3.7.5
+eval "$(pyenv virtualenv-init -)"
 
-# Setup virtualenv home
-export WORKON_HOME=$HOME/.virtualenvs
-mkdir -p $WORKON_HOME
-# source virtualenvwrapper.sh
-# source usr/local/bin/virtualenvwrapper.sh
+
+# I fail to see the advantage of pyenv-virtualenvwrapper over pyenv-virtualenv
+# so I have commented it out untill I am enlightend
+# export WORKON_HOME=$HOME/.virtualenvs
+# mkdir -p $WORKON_HOME
+# VIRTUALENVWRAPPER_PYTHON=/Users/jcr/.pyenv/shims/python
+# source /usr/local/bin/virtualenvwrapper.sh
 
 # Tell pyenv-virtualenvwrapper to use pyenv when creating new Python environments
-export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+# export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 
 # Set the pyenv shims to initialize
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-if command -v pyenv 1>/dev/null 2>&1; then
- eval "$(pyenv init -)"
-fi
+# eval "$(pyenv virtualenv-init -)"
+# if command -v pyenv 1>/dev/null 2>&1; then
+#  eval "$(pyenv init -)"
+# fi
 ################################################################################
 
 #
