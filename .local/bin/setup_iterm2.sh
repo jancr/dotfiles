@@ -13,15 +13,24 @@ if [[ -z $kticket ]]; then
 fi
 
 # connect ipython to hydra
-ssh -N -L 8888:localhost:8888 jcr@hydra &
+if [[ `pgrep -f 8888:localhost:8888` -eq '' ]]; then
+	ssh -N -L 8888:localhost:8888 jcr@hydra &
+fi;
 
 
+echo 'test1'
 osascript -e 'tell application "iTerm" to activate' 
+echo 'test2'
 osascript -e 'tell application "System Events" to tell process "iTerm" to keystroke "t" using command down'  
+echo 'test3'
 osascript -e 'tell application "System Events" to tell process "iTerm" to keystroke "tabset --title hydra"' -e 'tell application "System Events" to tell process "iTerm" to key code 52'
+echo 'test4'
 osascript -e 'tell application "System Events" to tell process "iTerm" to keystroke "tabset --color green"' -e 'tell application "System Events" to tell process "iTerm" to key code 52'
+echo 'test5'
 osascript -e 'tell application "System Events" to tell process "iTerm" to keystroke "ssh -Y hydra"' -e 'tell application "System Events" to tell process "iTerm" to key code 52'
+echo 'test'
 osascript -e 'tell application "System Events" to tell process "iTerm" to keystroke "tmux attach"' -e 'tell application "System Events" to tell process "iTerm" to key code 52'
+echo 'test'
 
 osascript -e 'tell application "iTerm" to activate' 
 osascript -e 'tell application "System Events" to tell process "iTerm" to keystroke "t" using command down' -e 'tell application "System Events" to tell process "iTerm" to key code 52'
