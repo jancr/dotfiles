@@ -18,8 +18,8 @@ if [ $OS = "Darwin" ]; then
 	alias excel='/Applications/Microsoft Excel.app'
 	alias word='/Applications/Microsoft Word.app'
 	alias powerpoint='/Applications/Microsoft PowerPoint.app'
-	export PATH="$PATH:/$HOME/Library/Python/2.7/bin"
-	export PATH="$PATH:/$HOME/Library/Python/3.6/bin"
+	# export PATH="$PATH:/$HOME/Library/Python/2.7/bin"
+	# export PATH="$PATH:/$HOME/Library/Python/3.6/bin"
 elif [ $OS = "Linux" ]; then
 	if [[ -a "$(which nodejs 2> /dev/null)" ]]; then
 		alias node="nodejs"
