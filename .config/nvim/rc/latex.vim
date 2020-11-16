@@ -10,3 +10,4 @@ let g:syntastic_tex_lacheck_quiet_messages = {
 		\ '\Vdouble space at',
 		\ 'Wrong length of dash'
 	\ ], }
+

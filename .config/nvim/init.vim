@@ -52,6 +52,9 @@ call plug#begin()
     " Latex:
     Plug 'lervag/vimtex'
 
+	" Bayesian:
+	Plug 'eigenfoo/stan-vim'
+
 	" jupyter integration
 	" Plug 'jupyter-vim/jupyter-vim'
 call plug#end()
@@ -110,6 +113,7 @@ autocmd BufNewFile,BufRead *.js  source $HOME/.config/nvim/rc/java_script.vim
 autocmd BufNewFile,BufRead *.cs source $HOME/.config/nvim/rc/cs.vim
 autocmd BufNewFile,BufRead *.c,*.cpp  source $HOME/.config/nvim/rc/c.vim
 " Other
+let g:tex_flavor = 'latex'
 autocmd BufNewFile,BufRead *.tex source $HOME/.config/nvim/rc/latex.vim
 autocmd BufNewFile,BufRead *.md  source $HOME/.config/nvim/rc/markdown.vim
 autocmd BufNewFile,BufRead *.html,*.xhtml  source $HOME/.config/nvim/rc/html.vim
