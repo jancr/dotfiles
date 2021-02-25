@@ -17,19 +17,19 @@ source ~/.bashrc
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-export QT_QPA_PLATFORM='offscreen'
+#export QT_QPA_PLATFORM='offscreen'
 
 # Setup virtualenv home
-export WORKON_HOME=$HOME/.virtualenvs
-mkdir -p $WORKON_HOME
-source /usr/local/bin/virtualenvwrapper.sh
+#export WORKON_HOME=$HOME/.virtualenvs
+#mkdir -p $WORKON_HOME
+#source /usr/local/bin/virtualenvwrapper.sh
 
 # Tell pyenv-virtualenvwrapper to use pyenv when creating new Python environments
-export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+#export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 
 # Set the pyenv shims to initialize
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+#eval "$(pyenv virtualenv-init -)"
 if command -v pyenv 1>/dev/null 2>&1; then
  eval "$(pyenv init -)"
 fi

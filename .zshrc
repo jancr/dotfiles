@@ -38,11 +38,11 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 export QT_QPA_PLATFORM='offscreen'
 export PYTHON_CONFIGURE_OPTS="--enable-shared"
 if [ -f $HOME/.config/zsh/pyenv.zsh ]; then
-	# modify this script if you do not want 3.7.5 as default
+	# modify this script if you do not want 3.9.1 as default
 	source $HOME/.config/zsh/pyenv.zsh 
 else
 	eval "$(pyenv init -)"
-	pyenv global 3.7.5
+	pyenv global 3.9.1
 	eval "$(pyenv virtualenv-init -)"
 fi
 

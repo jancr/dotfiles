@@ -6,8 +6,9 @@ export PYTHON_CONFIGURE_OPTS="--enable-shared"
 
 # install pyenv and set it to global:w
 curl https://pyenv.run | bash
-pyenv install 3.7.5
-pyenv global 3.7.5
+pyenv install 3.9.1
+pyenv global 3.9.1
+python -m pip install --upgrade pip
 
 # all of thise packages are installed into the global pyenv
 ########################################
