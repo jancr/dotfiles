@@ -20,8 +20,11 @@ let g:NERDCommentEmptyLines = 1
 " Syntastic
 "============================================================================
 " movements
-" :map ]r :lnext<CR>
-" :map [r :lprevious<CR>
+" :map ]r <Nop>
+" :map [r <Nop>
+
+" noremap ]r :lnext<CR>
+" noremap [r :lprevious<CR>
 
 :py3 << EOF
 class Syntastic:
@@ -38,7 +41,3 @@ class Syntastic:
 		cmd = ":{}{}".format(count, command)
 		print(cmd)
 		vim.command(cmd)
-EOF
-
-:noremap ]r :py3 Syntastic.move("lnext")<CR>
-:noremap [r :py3 Syntastic.move("lprevious")<CR>

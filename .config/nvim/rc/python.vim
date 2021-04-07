@@ -42,5 +42,10 @@ nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "===============================================================================
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_python_checkers = ['python']
-let g:syntastic_python_python_exec = 'python3'
+" let g:syntastic_python_python_exec = 'python3'
+
+" map ]r and [r to nex and previous flake8 error
+noremap ]r :lnext<CR>
+noremap [r :lprevious<CR>
+
 

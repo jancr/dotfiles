@@ -4,6 +4,9 @@ set fileencoding=utf-8  " The encoding written to file.
 
 " let g:python2_host_prog = '/usr/local/bin/python'
 " let g:python3_host_prog = '/usr/local/bin/python3'
+" let g:python3_host_prog = '$HOME/.pyenv/shims/python'
+let g:python3_host_prog = $HOME . '/.pyenv/versions/3.9.1/bin/python'
+" let g:python3_host_prog = '/novo/users/jref/.pyenv/versions/3.9.1/bin/python'
 " ============================= vim-plug  ==============================
 call plug#begin()
     " On-demand loading
@@ -74,8 +77,8 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 " keybindings for syntastic
-noremap  ]e :lnext<CR>
-noremap  [e :lprevious<CR>
+" noremap ]e :lnext<CR>
+" noremap [e :lprevious<CR>
 
 " ============================================================
 
