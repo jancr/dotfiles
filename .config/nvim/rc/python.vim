@@ -11,7 +11,7 @@ set textwidth=99
 setf python
 
 " allows ctrl+R + i to dump an ipdb trace
-let @i='import colored_traceback.auto; import ipdb; ipdb.set_trace()  # noqa'
+let @i='import ipdb; ipdb.set_trace()  # noqa'
 
 let fn_path = "$HOME/.config/nvim/sourceforge/python_fn.vim"
 if !filereadable(expand(fn_path))

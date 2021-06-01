@@ -51,6 +51,8 @@ call plug#begin()
     " Plug 'https://github.com/tweekmonster/impsort.vim'
 	" Good plugin, but does to much, so thus it inflicts with code completion and syntastic
 	" Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+	" Plug 'https://bitbucket.org/johanneskoester/snakemake.git', {'rtp': 'misc/vim/'}
+
 
     " Latex:
     Plug 'lervag/vimtex'
@@ -111,7 +113,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " file type specific vim config
 " ============================================================
 " programming languages
-autocmd BufNewFile,BufRead Snakefile,*.py,*.ipy  source $HOME/.config/nvim/rc/python.vim
+autocmd BufNewFile,BufRead *.py,*.ipy  source $HOME/.config/nvim/rc/python.vim
 autocmd BufNewFile,BufRead *.js  source $HOME/.config/nvim/rc/java_script.vim
 autocmd BufNewFile,BufRead *.cs source $HOME/.config/nvim/rc/cs.vim
 autocmd BufNewFile,BufRead *.c,*.cpp  source $HOME/.config/nvim/rc/c.vim
@@ -120,6 +122,13 @@ let g:tex_flavor = 'latex'
 autocmd BufNewFile,BufRead *.tex source $HOME/.config/nvim/rc/latex.vim
 autocmd BufNewFile,BufRead *.md  source $HOME/.config/nvim/rc/markdown.vim
 autocmd BufNewFile,BufRead *.html,*.xhtml  source $HOME/.config/nvim/rc/html.vim
+
+" Snakemake
+au BufNewFile,BufRead Snakefile,*.rules,*.snakefile,*.snake source $HOME/.config/nvim/rc/snakemake.vim
+" au BufNewFile,BufRead Snakefile set syntax=snakemake
+" au BufNewFile,BufRead *.rules set syntax=snakemake
+" au BufNewFile,BufRead *.snakefile set syntax=snakemake
+" au BufNewFile,BufRead *.snake set syntax=snakemake
 
 
 " ============================================================
