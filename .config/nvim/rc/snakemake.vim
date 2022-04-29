@@ -18,7 +18,8 @@
 "
 
 " load settings from system python.vim (7.4)
-source $VIMRUNTIME/syntax/python.vim
+source $HOME/.config/nvim/rc/python.vim
+" source $VIMRUNTIME/syntax/python.vim
 
 "
 " Snakemake rules, as of version 3.3
@@ -58,3 +59,4 @@ syn sync match pythonSync grouphere NONE "^\s*\%(rule\|subworkflow\)\s\+\h\w*\s*
 let b:current_syntax = "snakemake"
 
 " vim:set sw=2 sts=2 ts=8 noet:
+let g:syntastic_python_checkers = []
