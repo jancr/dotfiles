@@ -7,9 +7,10 @@ else
 fi;
 
 alias chrome=google-chrome
+alias ll=ls -lh
 # TODO alias and completion for the alias
-alias t="todo.sh"
-alias iperl="$HOME/.local/p5-iperl/bin/iperl"
+# alias t="todo.sh"
+# alias iperl="$HOME/.local/p5-iperl/bin/iperl"
 
 
 if [ $OS = "Darwin" ]; then
