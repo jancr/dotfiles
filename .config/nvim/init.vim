@@ -5,7 +5,7 @@ set fileencoding=utf-8  " The encoding written to file.
 " let g:python2_host_prog = '/usr/local/bin/python'
 " let g:python3_host_prog = '/usr/local/bin/python3'
 " let g:python3_host_prog = '$HOME/.pyenv/shims/python'
-let g:python3_host_prog = $HOME . '/.pyenv/versions/3.9.1/bin/python'
+" let g:python3_host_prog = $HOME . '/.pyenv/versions/3.9.1/bin/python'
 " let g:python3_host_prog = '/novo/users/jref/.pyenv/versions/3.9.1/bin/python'
 " ============================= vim-plug  ==============================
 call plug#begin()

@@ -1,18 +1,22 @@
- 
-# Jan Christians Refsgaards .zshrc, originally inspired by Helen Cooks awesome zsh
-
 OS=`uname -s`
 export TERM=xterm-256color
-################################################################################
-# antibody // oh-my-zsh // antigen // zgen
-################################################################################
-# use antibidy for some stuff because it is faster
-# antibody bundle < ~/.zsh/antibody.plugins >> ~/.zsh/antibody.sources
 
-# import zle before oh-my-zsh
+
+# import zle and autojump before oh-my-zsh
 zmodload zsh/zle
+[ -f /usr/share/autojump/autojump.sh ] && source /usr/share/autojump/autojump.sh
 
-# and antibody for the rest
+
+################################################################################
+# linuxbrew and oh-my-posh
+################################################################################
+[ -f /home/linuxbrew/.linuxbrew/bin/brew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" 
+eval "$(oh-my-posh --init --shell zsh --config $HOME/.config/.posh.omp.json)"
+
+
+################################################################################
+# oh-my-zsh // antigen 
+################################################################################
 source ~/.local/bin/antigen.zsh
 source ~/.config/zsh/antigen.zsh
 antigen apply
@@ -23,48 +27,22 @@ zle -N zle-line-init
 # this is set such that z works on windows linux subsystem
 setopt nobgnice
 
+
 ################################################################################
-eval $(thefuck --alias fix)
 # mangle PATHS
+################################################################################
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
 
 ################################################################################
 # pyenv
 ################################################################################
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-export QT_QPA_PLATFORM='offscreen'
-export PYTHON_CONFIGURE_OPTS="--enable-shared"
-if [ -f $HOME/.config/zsh/pyenv.zsh ]; then
-	# modify this script if you do not want 3.9.1 as default
-	source $HOME/.config/zsh/pyenv.zsh 
-else
-	eval "$(pyenv init -)"
-	pyenv global 3.9.1
-	eval "$(pyenv virtualenv-init -)"
-fi
+source $HOME/.config/zsh/pyenv.zsh 
 
-# I fail to see the advantage of pyenv-virtualenvwrapper over pyenv-virtualenv
-# so I have commented it out untill I am enlightend
-# export WORKON_HOME=$HOME/.virtualenvs
-# mkdir -p $WORKON_HOME
-# VIRTUALENVWRAPPER_PYTHON=/Users/jcr/.pyenv/shims/python
-# source /usr/local/bin/virtualenvwrapper.sh
 
-# Tell pyenv-virtualenvwrapper to use pyenv when creating new Python environments
-# export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
-
-# Set the pyenv shims to initialize
-# eval "$(pyenv virtualenv-init -)"
-# if command -v pyenv 1>/dev/null 2>&1; then
-#  eval "$(pyenv init -)"
-# fi
 ################################################################################
-
-#
 # source sub configs
+################################################################################
 [ -f $HOME/.local/qfc/bin/qfc.sh ] && source $HOME/.local/qfc/bin/qfc.sh
 source $HOME/.config/zsh/aliases.zsh
 source $HOME/.config/zsh/vim.zsh

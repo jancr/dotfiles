@@ -20,6 +20,6 @@ pip3 install --user --upgrade neovim
 nvim --headless +PlugInstall +qall
 
 # compile tab completion
-cd $HOME/.config/nvim/plugged/YouCompleteMe
+cd $HOME/.local/share/nvim/plugged/YouCompleteMe/
 # ./install.py --clang-completer
-python3 install.py --clang-completer
+python install.py --clang-completer

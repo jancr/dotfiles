@@ -1,10 +1,15 @@
 # This is Git's per-user configuration file.
 [user]
-	name = JREF
-	email = jref@novonordisk.com
+	name = "Jan Christian Refsgaard"
+	email = jcr@gmail.com
 [core]
-	excludesfile = /Users/jcr/.config/.gitignore_global
+	excludesfile = $HOME/.config/.gitignore_global
 	eol = native
 	autocrlf = input
 [push]
 	default = matching
+
+[includeIf "gitdir:/novo/jref/"]
+	path = ~/.conf/.git
+[includeIf "gitdir:/home/jref/"]
+	path = ~/work/.gitconfig
