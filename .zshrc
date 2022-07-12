@@ -10,9 +10,20 @@ zmodload zsh/zle
 ################################################################################
 # linuxbrew and oh-my-posh
 ################################################################################
-[ -f /home/linuxbrew/.linuxbrew/bin/brew ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" 
-eval "$(oh-my-posh --init --shell zsh --config $HOME/.config/.posh.omp.json)"
+# linuxbrew is installed normally
+if [ -f /home/linuxbrew/.linuxbrew/bin/brew ]; then
+   	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" 
+# linuxbrew is cloned because I do not have admin rights
+elif [ -f $HOME/.linuxbrew/bin/brew ]; then
+   	eval "$($HOME/.linuxbrew/bin/brew shellenv)" 
+elif command -v oh-my-posh &> /dev/null; then
+	# oh my posh is installed elsewere
+else
+	echo "Homebrew is not installed, this will make oh-my-posh fail :*"
+fi
 
+# oh-my-posh is installed by linux brew and thus needs to be invoked later
+eval "$(oh-my-posh --init --shell zsh --config $HOME/.config/.posh.omp.json)"
 
 ################################################################################
 # oh-my-zsh // antigen 

@@ -12,9 +12,8 @@ if type pyenv &> /dev/null; then
 		pyenv global 3.10.5
 		eval "$(pyenv virtualenv-init -)"
 	fi
+
+	eval "$(pyenv init -)"
+	pyenv global system
+	eval "$(pyenv virtualenv-init -)"
 fi
-
-eval "$(pyenv init -)"
-pyenv global system
-eval "$(pyenv virtualenv-init -)"
-

@@ -13,3 +13,6 @@ eval "$(oh-my-posh --init --shell bash --config $HOME/.config/.posh.omp.json)"
 # pyenv
 ################################################################################
 source $HOME/.config/zsh/pyenv.zsh 
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
