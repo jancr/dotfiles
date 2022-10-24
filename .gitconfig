@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
-	name = "Jan Christian Refsgaard"
-	email = jcr@gmail.com
+	name = Jan Christian Refsgaard
+	email = jref@novonordisk.com
 [core]
 	excludesfile = $HOME/.config/.gitignore_global
 	eol = native
@@ -13,3 +13,5 @@
 	path = ~/.conf/.git
 [includeIf "gitdir:/home/jref/"]
 	path = ~/work/.gitconfig
+[http]
+	sslCAinfo = /etc/ssl/certs/ca-certificates.crt

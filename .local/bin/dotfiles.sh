@@ -15,7 +15,7 @@ bash $HOME/.local/bin/install/npm.sh
 
 # shells
 bash $HOME/.local/bin/install/zsh.sh
-bash $HOME/.local/bin/install/bash.sh
+#bash $HOME/.local/bin/install/bash.sh
 bash $HOME/.local/bin/install/tmux.sh
 
 bash $HOME/.local/bin/install/neovim.sh

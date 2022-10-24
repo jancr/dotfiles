@@ -16,7 +16,7 @@ sudo apt-get -y install yadm
 
 ### 2. Install the rest
 ```
-yadm clone --hard git+ssh://git@github.com/username/reponame.git
+yadm clone --hard git+ssh://git@github.com/jancr/dotfiles.git
 bash ~/bin/dotfiles.sh
 ```
 
