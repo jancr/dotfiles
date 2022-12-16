@@ -13,3 +13,6 @@
 	path = ~/.conf/.git
 [includeIf "gitdir:/home/jref/"]
 	path = ~/work/.gitconfig
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
