@@ -74,9 +74,11 @@ setopt EXTENDED_GLOB
 
 
 ################################################################################
-# no training wheels!
+# other 
 ################################################################################
 setopt rm_star_silent
+# make gir read ~/.ssh/config
+export GIT_SSH_COMMAND="ssh"
 
 ################################################################################
 export DISABLE_AUTO_TITLE="true" 

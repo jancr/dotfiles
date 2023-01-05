@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
 	name = Jan Christian Refsgaard
-	email = jref@novonordisk.com
+	email = jancrefsgaard@gmail.com
 [core]
 	excludesfile = $HOME/.config/.gitignore_global
 	eol = native
@@ -9,9 +9,12 @@
 [push]
 	default = matching
 
+# Change to Work user if in any of thise places
 [includeIf "gitdir:/novo/jref/"]
-	path = ~/.conf/.git
+	path = ~/.config/.gitworkconfig
 [includeIf "gitdir:/home/jref/"]
-	path = ~/work/.gitconfig
-[http]
-	sslCAinfo = /etc/ssl/certs/ca-certificates.crt
+	path = ~/.config/.gitworkconfig
+[includeIf "gitdir:/mnt/einstein/"]
+	path = ~/.config/.gitworkconfig
+[includeIf "gitdir:/mnt/skynet/"]
+	path = ~/.config/.gitworkconfig
