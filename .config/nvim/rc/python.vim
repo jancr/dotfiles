@@ -1,13 +1,8 @@
 
+"===============================================================================
 " tab stuff
 "===============================================================================
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set shiftround
-set expandtab
-set syntax=python
-set textwidth=99
+source $HOME/.config/nvim/rc/code.vim
 setf python
 
 " allows ctrl+R + i to dump an ipdb trace
@@ -25,9 +20,9 @@ exec "source " . expand(fn_path)
 " YCM jedi hotkeys
 "===============================================================================
 " close the window __doc__ window when you have choosen a completion
-let g:ycm_autoclose_preview_window_after_completion=1
+" let g:ycm_autoclose_preview_window_after_completion=1
 " 
-nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " show call signatures in the button of the screen
 " set g:jedi#show_call_signatures=2
 
@@ -40,12 +35,13 @@ nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "===============================================================================
 " Python Syntastic
 "===============================================================================
-let g:syntastic_python_checkers=['flake8']
-let g:syntastic_python_checkers = ['python']
+" let g:syntastic_python_checkers=['flake8']
+" let g:syntastic_python_checkers = ['python']
 " let g:syntastic_python_python_exec = 'python3'
 
 " map ]r and [r to nex and previous flake8 error
-noremap ]r :lnext<CR>
-noremap [r :lprevious<CR>
+" noremap ]r :lnext<CR>
+" noremap [r :lprevious<CR>
+
 
 

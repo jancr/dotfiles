@@ -10,9 +10,8 @@
 	default = matching
 
 [includeIf "gitdir:/novo/jref/"]
-	path = ~/.conf/.git
+	path = ~/.conf/.gitworkconfig
 [includeIf "gitdir:/home/jref/"]
-	path = ~/work/.gitconfig
-[credential "https://github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
+	path = ~/.conf/.gitworkconfig
+; [credential "https://github.com"]
+;     helper = !/usr/bin/gh auth git-credential

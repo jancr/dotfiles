@@ -23,9 +23,12 @@ if [ $OS = "Darwin" ]; then
 	# export PATH="$PATH:/$HOME/Library/Python/2.7/bin"
 	# export PATH="$PATH:/$HOME/Library/Python/3.6/bin"
 elif [ $OS = "Linux" ]; then
-	if [[ -a "$(which nodejs 2> /dev/null)" ]]; then
-		alias node="nodejs"
-	fi;
+	# if node does not exist then alias nodejs to node
+	# if [[ -a "$(which node 2> /dev/null)" ]]; then
+	#     if [[ -a "$(which nodejs 2> /dev/null)" ]]; then
+	#         alias node="nodejs"
+	#     fi;
+	# fi;
 	if [[ -a "$(which xclip 2> /dev/null)" ]]; then
 		alias c="xclip -selection clipboard"
 		alias v="xclip -selection clipboard -o"

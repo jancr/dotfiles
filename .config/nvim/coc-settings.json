@@ -1,0 +1,5 @@
+{
+	"suggest.enablePreselect": true,
+	"suggest.noselect": true,
+	"coc.preferences.noselect": false
+}
