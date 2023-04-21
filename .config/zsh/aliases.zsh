@@ -7,6 +7,7 @@ else
 fi;
 
 alias chrome=google-chrome
+unalias ll
 alias "ll=ls -lh"
 # TODO alias and completion for the alias
 # alias t="todo.sh"

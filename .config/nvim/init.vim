@@ -17,6 +17,16 @@ call plug#begin()
         set termguicolors
     endif
 
+	" New:
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	" Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
+	Plug 'Vimjas/vim-python-pep8-indent'
+	Plug 'jeetsukumaran/vim-pythonsense'
+	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+
+
+
     " General:
     Plug 'scrooloose/nerdcommenter'
     "Plug 'freeo/vim-kalisi'
@@ -25,11 +35,12 @@ call plug#begin()
 	Plug 'vim-airline/vim-airline-themes'
 
     " Syntax:
-    Plug 'vim-syntastic/syntastic'
+    " Plug 'vim-syntastic/syntastic'
+	Plug 'dense-analysis/ale'
 
     " Tab Completion:
 	Plug 'ervandew/supertab'
-	Plug 'Valloric/YouCompleteMe'
+	" Plug 'Valloric/YouCompleteMe'
 	Plug 'SirVer/ultisnips'
 	Plug 'honza/vim-snippets'
 	" Plug 'prabirshrestha/async.vim'
@@ -70,19 +81,47 @@ filetype plugin indent on    " required
 " ============================================================
 " Syntaxtic recomended settings, change when smarter :D
 " ============================================================
-"set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" "set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" 
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" " keybindings for syntastic
+" " noremap ]e :lnext<CR>
+" " noremap [e :lprevious<CR>
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-" keybindings for syntastic
-" noremap ]e :lnext<CR>
-" noremap [e :lprevious<CR>
+
 
 " ============================================================
+" New stuff:
+" ============================================================
+let g:ale_linters = {
+      \   'python': ['flake8', 'pylint'],
+      \   'ruby': ['standardrb', 'rubocop'],
+      \   'javascript': ['eslint'],
+      \}
+let g:ale_fixers = {
+      \    'python': ['yapf'],
+      \}
+
+nmap <F10> :ALEFix<CR>
+let g:ale_fix_on_save = 1
+
+nmap <silent> gd <Plug>(coc-definition)
+
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+nmap <leader>rn <Plug>(coc-rename)
 
 " ============================================================
 " Fix Tab completion
@@ -95,15 +134,17 @@ let g:syntastic_check_on_wq = 0
 
 " from: https://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme
 " make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+" let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+" let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
-let g:ycm_auto_trigger = 1
+" let g:ycm_auto_trigger = 1
 
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+
 
 " uncomment if you want snippet and code completion to have different keys
 " let g:UltiSnipsJumpForwardTrigger="<c-j>"
@@ -113,6 +154,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " file type specific vim config
 " ============================================================
 " programming languages
+source $HOME/.config/nvim/rc/coc.vim
 autocmd BufNewFile,BufRead *.py,*.ipy  source $HOME/.config/nvim/rc/python.vim
 autocmd BufNewFile,BufRead *.js  source $HOME/.config/nvim/rc/java_script.vim
 autocmd BufNewFile,BufRead *.cs source $HOME/.config/nvim/rc/cs.vim

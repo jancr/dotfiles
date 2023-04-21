@@ -18,3 +18,5 @@
 	path = ~/.config/.gitworkconfig
 [includeIf "gitdir:/mnt/skynet/"]
 	path = ~/.config/.gitworkconfig
+# [credential "https://github.com"]
+#     helper = !/usr/bin/gh auth git-credential
