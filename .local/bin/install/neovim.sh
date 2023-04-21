@@ -24,7 +24,7 @@ mv nvim.appimage $HOME/.local/bin/nvim
 pip2 install --user --upgrade neovim
 
 # coc depends on a new version of node!
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bashwget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 $HOME/.nvm/nvm.sh
 nvm install node
 nvm install --lts

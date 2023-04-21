@@ -110,19 +110,6 @@ let g:ale_fixers = {
 nmap <F10> :ALEFix<CR>
 let g:ale_fix_on_save = 1
 
-nmap <silent> gd <Plug>(coc-definition)
-
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-nmap <leader>rn <Plug>(coc-rename)
-
 " ============================================================
 " Fix Tab completion
 "  - both YouCompleteMe and UltiSnips use the tab key
