@@ -35,6 +35,7 @@ npm install -g neovim
 # install plugins
 nvim --headless +PlugInstall +qall
 
+pip3 install tree_sitter
 ## Manudal steps
 # :CocInstall coc-pyright
 

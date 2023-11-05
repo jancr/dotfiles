@@ -77,6 +77,7 @@ setopt EXTENDED_GLOB
 # no training wheels!
 ################################################################################
 setopt rm_star_silent
+bindkey -e
 
 ################################################################################
 export DISABLE_AUTO_TITLE="true" 

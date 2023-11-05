@@ -25,8 +25,6 @@ call plug#begin()
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 
-
-
     " General:
     Plug 'scrooloose/nerdcommenter'
     "Plug 'freeo/vim-kalisi'
