@@ -9,11 +9,7 @@ if type pyenv &> /dev/null; then
 		source $HOME/.config/zsh/pyenv_extra.zsh 
 	else
 		eval "$(pyenv init -)"
-		pyenv global 3.10.5
+		pyenv global system
 		eval "$(pyenv virtualenv-init -)"
 	fi
-
-	eval "$(pyenv init -)"
-	pyenv global system
-	eval "$(pyenv virtualenv-init -)"
 fi

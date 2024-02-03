@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
-	name = "Jan Christian Refsgaard"
-	email = jcr@gmail.com
+	name = Jan Christian Refsgaard
+	email = jancrefsgaard@gmail.com
 [core]
 	excludesfile = $HOME/.config/.gitignore_global
 	eol = native
@@ -9,9 +9,14 @@
 [push]
 	default = matching
 
+# Change to Work user if in any of thise places
 [includeIf "gitdir:/novo/jref/"]
-	path = ~/.conf/.gitworkconfig
+	path = ~/.config/.gitworkconfig
 [includeIf "gitdir:/home/jref/"]
-	path = ~/.conf/.gitworkconfig
-; [credential "https://github.com"]
-;     helper = !/usr/bin/gh auth git-credential
+	path = ~/.config/.gitworkconfig
+[includeIf "gitdir:/mnt/einstein/"]
+	path = ~/.config/.gitworkconfig
+[includeIf "gitdir:/mnt/skynet/"]
+	path = ~/.config/.gitworkconfig
+# [credential "https://github.com"]
+#     helper = !/usr/bin/gh auth git-credential

@@ -74,10 +74,13 @@ setopt EXTENDED_GLOB
 
 
 ################################################################################
-# no training wheels!
+# other 
 ################################################################################
 setopt rm_star_silent
 bindkey -e
+
+# make git read ~/.ssh/config
+export GIT_SSH_COMMAND="ssh"
 
 ################################################################################
 export DISABLE_AUTO_TITLE="true" 
@@ -95,4 +98,5 @@ export PYSPARK_PYTHON=python3
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

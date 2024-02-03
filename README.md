@@ -20,7 +20,6 @@ yadm clone --hard git+ssh://git@github.com/jancr/dotfiles.git
 yadm decrypt
 
 # this almost always fails, at the scripts it runs and run them induvidually
+>>>>>>> 8448edc274c28c188367fec42708db851ce45e6d
 bash ~/bin/dotfiles.sh
 ```
-
-
